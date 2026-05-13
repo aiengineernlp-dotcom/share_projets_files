@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Bloquer l'accès aux dossiers sensibles WordPress
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+
+Sitemap: https://votre-site.com

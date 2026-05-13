@@ -1,0 +1,18 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environnements Python (ML/AI)
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Environnements Node.js
+node_modules/
+dist/
+build/
+
+# Fichiers sensibles et logs
+.env
+*.log
