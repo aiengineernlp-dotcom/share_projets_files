@@ -3,8 +3,13 @@
 ## Environnement Virtuel (Venv)
 Créer et activer un environnement propre :
 ```bash
-python -m venv .venv
-source .venv/bin/activate  # Mac/Linux
+#Créer
+python -m venv .env
+#activer
+source .env/bin/activate  # Mac/Linux
+#Créer et activer
+python -m venv .env && source .env/bin/activate
+
 pip install pandas numpy scikit-learn torch tensorflow
 ```
 
