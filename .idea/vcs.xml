@@ -2,5 +2,36 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/AI_ML" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/AI_ML/ai_ml_projects/Handwriting_Recognition using_K_Means" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/AI_ML/ai_ml_projects/projet_1_series_Transforming Data into Features/Préparation des données pour le Machine Learning/Evaluation_vetements_clients" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/AI_ML/ai_ml_projects/projet_2_series_Supervised_Learning_Linear_and_Logistic _Regression_KNN_ Decision_Treesalgorithms/Honey Production" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/AI_ML/ai_ml_projects/projet_2_series_Supervised_Learning_Linear_and_Logistic _Regression_KNN_ Decision_Treesalgorithms/Tennis Ace" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/AI_ML/ai_ml_projects/trees_decisions/Find the flag" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/MOBILE/bmp_237" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/MOBILE/flutter-localization-v2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/NLP/projet_1_sur_50_nettoyeur_et_tokeniseur_de.../projet_clean" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/NLP/projet_1_sur_50_nettoyeur_et_tokeniseur_de.../raw_dataset_cleaner_and_tokenizer_NLP" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/NLP/projet_2_sur_50_Tokeniseur_maneul_de_text_avancer/jour_1_bis" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/WEB/beyond_connect" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/WEB/beyond_connect copy_avec_erreur_session_id" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/WEB/versions_du_compte_beyond_connect_world_Projet Coding Guidance/beyond_connect_semaine_sne_1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/WEB/versions_du_compte_beyond_connect_world_Projet Coding Guidance/beyond_connect_semaine_sne_2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/WEB/versions_du_compte_beyond_connect_world_Projet Coding Guidance/beyond_connect_semaine_sne_3" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/WEB/versions_du_compte_beyond_connect_world_Projet Coding Guidance/beyond_connect_semaine_sne_4" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/WEB/versions_du_compte_beyond_connect_world_Projet Coding Guidance/beyond_connect_semaine_sne_5" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/WEB/versions_du_compte_beyond_connect_world_Projet Coding Guidance/beyond_connect_semaine_sne_6.5" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/WEB/versions_du_compte_beyond_connect_world_Projet Coding Guidance/beyond_connect_semaine_sne_6.BEST" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/WEB/versions_du_compte_beyond_connect_world_Projet Coding Guidance/beyond_connect_semaine_sne_6_1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/WEB/versions_du_compte_beyond_connect_world_Projet Coding Guidance/beyond_connect_semaine_sne_6_2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/WEB/versions_du_compte_beyond_connect_world_Projet Coding Guidance/beyond_connect_semaine_sne_6_3" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/WEB/versions_du_compte_beyond_connect_world_Projet Coding Guidance/beyond_connect_semaine_sne_6_4" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/WEB/versions_du_compte_slash/Projet Coding Guidance_SLASH_compte/beyond_connect copy_structure" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/WEB/versions_du_compte_slash/Projet Coding Guidance_SLASH_compte/beyond_connect s_1_a_6_7_8ou" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/WEB/versions_du_compte_slash/Projet Coding Guidance_SLASH_compte/beyond_connect_semaine_1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/WEB/versions_du_compte_slash/Projet Coding Guidance_SLASH_compte/beyond_connect_semaine_2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/WEB/versions_du_compte_slash/Projet Coding Guidance_SLASH_compte/beyond_connect_semaine_3" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/WEB/versions_du_compte_slash/Projet Coding Guidance_SLASH_compte/beyond_connect_semaine_4" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/project_IA/WEB/versions_du_compte_slash/beyond_connect_Projet Coding Guidance_SLASH_last_semaine5_avec_erreurs" vcs="Git" />
   </component>
 </project>

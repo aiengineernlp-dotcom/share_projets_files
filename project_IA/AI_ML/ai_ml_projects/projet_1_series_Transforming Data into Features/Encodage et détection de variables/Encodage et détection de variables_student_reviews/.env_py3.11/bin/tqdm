@@ -1,0 +1,10 @@
+#!/bin/sh
+'''exec' "/Users/ermanw/Projects_AI/AI_ML/projet_1_series_Transforming Data into Features/Encodage et détection de variables/Encodage et détection de variables_student_reviews/.env_py3.11/bin/python3.11" "$0" "$@"
+' '''
+# -*- coding: utf-8 -*-
+import re
+import sys
+from tqdm.cli import main
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(main())

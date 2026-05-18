@@ -1,0 +1,11 @@
+student_id,recommended,rating,department_name,age,review_date
+1,True,Excellent,Math,20,2024-01-10
+2,False,Good,Science,22,2024-01-15
+3,True,Average,History,21,2024-01-20
+4,True,Poor,Math,19,2024-01-25
+5,False,Good,Science,23,2024-01-30
+6,True,Excellent,History,20,2024-02-04
+7,False,Poor,Math,24,2024-02-10
+8,True,Good,Science,21,2024-02-15
+9,True,Average,History,22,2024-02-20
+10,False,Excellent,Math,20,2024-02-25
