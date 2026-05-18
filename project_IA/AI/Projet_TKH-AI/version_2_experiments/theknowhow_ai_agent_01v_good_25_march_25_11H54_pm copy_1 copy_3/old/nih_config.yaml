@@ -1,0 +1,202 @@
+# Configuration pour le scraper NIH (National Institutes of Health)
+
+# URL de base du site
+base_url: "https://www.nih.gov"
+
+# Instituts et centres à scraper
+institutes:
+  - name: "National Cancer Institute"
+    code: "NCI"
+    url: "https://www.cancer.gov"
+  - name: "National Heart, Lung, and Blood Institute"
+    code: "NHLBI"
+    url: "https://www.nhlbi.nih.gov"
+  - name: "National Institute of Allergy and Infectious Diseases"
+    code: "NIAID"
+    url: "https://www.niaid.nih.gov"
+  - name: "National Institute of Neurological Disorders and Stroke"
+    code: "NINDS"
+    url: "https://www.ninds.nih.gov"
+  - name: "National Institute of Mental Health"
+    code: "NIMH"
+    url: "https://www.nimh.nih.gov"
+
+# Types de contenu
+content_types:
+  - "research-news"
+  - "press-releases"
+  - "health-information"
+  - "clinical-trials"
+  - "grants-funding"
+  - "scientific-resources"
+  - "publications"
+  - "datasets"
+
+# Paramètres de recherche
+search:
+  date_range:
+    start: "2020-01-01"
+    end: ""  # Vide pour la date actuelle
+  sort_by: "date"
+  results_per_page: 100
+  max_pages: 1000
+
+# Paramètres de scraping
+scraping:
+  max_concurrent_requests: 3
+  request_delay: 1.5  # Délai entre les requêtes en secondes
+  timeout: 30
+  retry_count: 3
+  retry_delay: 5.0
+  max_items_per_type: 1000
+  update_frequency: "daily"
+  respect_robots_txt: true
+
+# Headers HTTP pour les requêtes
+headers:
+  User-Agent: "Mozilla/5.0 (compatible; MedicalResearchBot/1.0; +https://www.example.com/bot)"
+  Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+  Accept-Language: "en-US,en;q=0.5"
+
+# Configuration du stockage
+storage:
+  database_path: "data/databases/nih.db"
+  cache_path: "data/cache/nih"
+  backup_path: "data/backups/nih"
+  export_path: "data/exports/nih"
+  media_path: "data/media/nih"
+  pdf_path: "data/documents/nih"
+
+# Configuration du logging
+logging:
+  file_path: "data/logs/nih.log"
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  rotation: "1 week"
+  max_size: "100MB"
+
+# Paramètres d'extraction des données
+data_extraction:
+  extract_metadata: true
+  extract_full_text: true
+  extract_references: true
+  extract_figures: true
+  extract_tables: true
+  extract_datasets: true
+  extract_funding_info: true
+  save_pdf: true
+  translate_to_french: true
+  parse_citations: true
+
+# Paramètres de traduction
+translation:
+  enabled: true
+  source_language: "en"
+  target_language: "fr"
+  service: "deepl"
+  batch_size: 50
+  preserve_formatting: true
+  translate_fields:
+    - "title"
+    - "abstract"
+    - "content"
+    - "keywords"
+    - "highlights"
+
+# Filtres de contenu
+content_filters:
+  min_content_length: 200
+  required_fields:
+    - "title"
+    - "date"
+    - "content"
+    - "source_institute"
+  excluded_keywords:
+    - "retracted"
+    - "withdrawn"
+    - "correction"
+  required_keywords:
+    - "research"
+    - "health"
+    - "medical"
+    - "clinical"
+    - "scientific"
+
+# Paramètres de qualité
+quality_filters:
+  require_peer_review: true
+  require_methodology: true
+  require_references: true
+  require_author_info: true
+  min_reference_count: 5
+  check_broken_links: true
+
+# Paramètres de notification
+notifications:
+  enabled: true
+  channels:
+    - "email"
+    - "slack"
+  triggers:
+    - "new_research"
+    - "funding_opportunity"
+    - "clinical_trial_update"
+    - "policy_change"
+    - "error_alert"
+  priority_levels:
+    - "high"
+    - "medium"
+    - "low"
+
+# Paramètres de sauvegarde
+backup:
+  enabled: true
+  frequency: "daily"
+  keep_days: 90
+  compress: true
+  include_media: true
+
+# API Configuration
+api:
+  enabled: true
+  base_url: "https://api.nih.gov"
+  version: "v1"
+  key: ""  # Clé API à remplir
+  rate_limit: 100  # Requêtes par minute
+  endpoints:
+    - "research"
+    - "grants"
+    - "clinical-trials"
+    - "publications"
+
+# Classification des recherches
+research_categories:
+  - "Basic Research"
+  - "Clinical Research"
+  - "Translational Research"
+  - "Population Studies"
+  - "Public Health"
+
+# RSS Feeds
+rss:
+  enabled: true
+  check_frequency: 1800  # en secondes
+  feeds:
+    - name: "NIH News Releases"
+      url: "https://www.nih.gov/news-events/news-releases/feed.xml"
+    - name: "Research Matters"
+      url: "https://www.nih.gov/news-events/research-matters/feed.xml"
+    - name: "NIH Director's Blog"
+      url: "https://directorsblog.nih.gov/feed/"
+
+# Paramètres spécifiques aux données cliniques
+clinical_data:
+  include_trial_status: true
+  include_eligibility: true
+  include_locations: true
+  include_contacts: true
+  include_results: true
+  trial_types:
+    - "Interventional"
+    - "Observational"
+    - "Patient Registry" 

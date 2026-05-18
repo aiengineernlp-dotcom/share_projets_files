@@ -1,0 +1,119 @@
+# Configuration pour le scraper Altibbi
+
+# URL de base du site
+base_url: "https://www.altibbi.com"
+
+# Langues supportées
+languages:
+  - "ar"  # Arabe
+  - "en"  # Anglais
+
+# Catégories à scraper
+categories:
+  - "medical-dictionary"
+  - "diseases"
+  - "symptoms"
+  - "medications"
+  - "medical-tests"
+  - "first-aid"
+  - "pregnancy"
+  - "nutrition"
+  - "mental-health"
+  - "pediatrics"
+
+# Paramètres de scraping
+scraping:
+  max_concurrent_requests: 3
+  request_delay: 2.0  # Délai entre les requêtes en secondes
+  timeout: 30
+  retry_count: 3
+  retry_delay: 5.0
+  max_pages_per_category: 100
+  max_articles_per_category: 1000
+  max_questions_per_day: 500
+
+# Headers HTTP pour les requêtes
+headers:
+  User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+  Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
+  Accept-Language: "ar,en-US;q=0.9,en;q=0.8"
+
+# Configuration du stockage
+storage:
+  database_path: "data/databases/altibbi.db"
+  cache_path: "data/cache/altibbi"
+  backup_path: "data/backups/altibbi"
+  export_path: "data/exports/altibbi"
+  media_path: "data/media/altibbi"
+
+# Configuration du logging
+logging:
+  file_path: "data/logs/altibbi.log"
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  rotation: "1 week"
+  max_size: "100MB"
+
+# Filtres de contenu
+content_filters:
+  min_article_length: 300
+  min_question_length: 50
+  min_answer_length: 100
+  excluded_keywords:
+    - "إعلان"      # publicité en arabe
+    - "مدعوم"      # sponsorisé en arabe
+    - "advertisement"
+    - "sponsored"
+  required_keywords:
+    - "صحة"        # santé en arabe
+    - "طب"         # médecine en arabe
+    - "علاج"       # traitement en arabe
+    - "تشخيص"      # diagnostic en arabe
+    - "health"
+    - "medical"
+    - "treatment"
+    - "diagnosis"
+
+# Paramètres d'extraction des données
+data_extraction:
+  extract_metadata: true
+  extract_images: true
+  extract_references: true
+  extract_related_articles: true
+  extract_author_info: true
+  extract_doctor_credentials: true
+  save_html: false
+  translate_to_french: true
+
+# Paramètres de traduction
+translation:
+  enabled: true
+  source_languages:
+    - "ar"
+    - "en"
+  target_language: "fr"
+  service: "google"  # ou "azure", "deepl", etc.
+  batch_size: 50
+
+# Paramètres de qualité
+quality_filters:
+  verified_doctors_only: true
+  min_doctor_rating: 4.0
+  exclude_user_content: false
+  min_answer_count: 1
+  min_publication_date: "2020-01-01"
+  require_medical_references: true
+
+# Paramètres de sauvegarde
+backup:
+  enabled: true
+  frequency: "daily"
+  keep_days: 30
+  compress: true
+
+# API Configuration (si disponible)
+api:
+  enabled: false
+  key: ""
+  endpoint: "https://api.altibbi.com"
+  version: "v1" 

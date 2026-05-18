@@ -1,0 +1,272 @@
+PREMIER CODE
+🚀 Première Étape : Script de Scraping et Stockage
+Je vais commencer par coder un script Python qui :
+✔️ Scrape les discussions sur Reddit.
+✔️ Analyse les messages avec NLP.
+✔️ Stocke les résultats en base de données SQLite.
+✔️ Expose une API simple pour récupérer les données.
+
+Tu veux que je lance le code ici pour que tu puisses tester directement ? 🚀
+
+✅ Scraper Reddit via son API (PRAW).
+✅ Analyser les discussions avec NLP (spaCy).
+✅ Stocker les résultats dans une base SQLite.
+✅ Exposer une API avec FastAPI pour récupérer les données.
+
+
+📌 Prérequis
+Avant d'exécuter le script, installe les dépendances :
+
+pip install praw fastapi uvicorn sqlite3 spacy
+python -m spacy download en_core_web_sm
+================================================================================================================================================
+import praw
+import sqlite3
+import spacy
+from fastapi import FastAPI
+from typing import List
+
+# --- Configuration de Reddit API ---
+REDDIT_CLIENT_ID = "TON_CLIENT_ID"
+REDDIT_CLIENT_SECRET = "TON_SECRET"
+REDDIT_USER_AGENT = "TON_USER_AGENT"
+
+reddit = praw.Reddit(
+    client_id=REDDIT_CLIENT_ID,
+    client_secret=REDDIT_CLIENT_SECRET,
+    user_agent=REDDIT_USER_AGENT
+)
+
+# --- Initialisation de NLP ---
+nlp = spacy.load("en_core_web_sm")
+
+# --- Connexion SQLite ---
+conn = sqlite3.connect("reddit_posts.db")
+cursor = conn.cursor()
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS posts (
+    id TEXT PRIMARY KEY,
+    title TEXT,
+    url TEXT,
+    created_utc REAL
+)
+""")
+conn.commit()
+
+# --- Fonction de Scraping ---
+def scrape_reddit(subreddit: str, query: str, limit: int = 10):
+    subreddit = reddit.subreddit(subreddit)
+    for submission in subreddit.search(query, limit=limit):
+        doc = nlp(submission.title)
+        if "medical" in submission.title.lower() and len(doc.ents) > 0:  # Filtrage NLP
+            cursor.execute("INSERT OR IGNORE INTO posts VALUES (?, ?, ?, ?)",
+                           (submission.id, submission.title, submission.url, submission.created_utc))
+    conn.commit()
+
+# --- API FastAPI ---
+app = FastAPI()
+
+@app.get("/posts", response_model=List[dict])
+def get_posts():
+    cursor.execute("SELECT * FROM posts ORDER BY created_utc DESC LIMIT 10")
+    posts = cursor.fetchall()
+    return [{"id": p[0], "title": p[1], "url": p[2]} for p in posts]
+
+if __name__ == "__main__":
+    scrape_reddit("AskDocs", "second opinion", 10)  # Scrape "AskDocs"
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+=========================
+=========================
+========================================================================================================================
+====================S=====CLAUDE=========================
+
+import os
+import logging
+import praw
+import sqlite3
+import spacy
+
+from fastapi import FastAPI, HTTPException
+from typing import List, Dict
+
+# Configuration du logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
+# --- Configuration de Reddit API ---
+
+'''Utilisez un fichier .env pour stocker
+ les identifiants, comme vous l'avez fait dans la deuxième
+ partie du code. Assurez-vous que le
+ fichier .env est ajouté à .gitignore pour éviter de le versionner.'''
+
+REDDIT_CLIENT_ID = "8VNEuay-bprtWEDAxkSwFg"
+REDDIT_CLIENT_SECRET = "a9Se9O_fX7yZai5uUfRIBKqCRV-2vw"
+REDDIT_USER_AGENT = "MyRedditBot/0.1 by @-Tony"
+
+# Initialisation de l'API Reddit
+try:
+    reddit = praw.Reddit(
+        client_id=REDDIT_CLIENT_ID,
+        client_secret=REDDIT_CLIENT_SECRET,
+        user_agent=REDDIT_USER_AGENT
+    )
+    logger.info("Connexion à l'API Reddit établie")
+except Exception as e:
+    logger.error(f"Erreur lors de la connexion à l'API Reddit: {e}")
+    raise
+
+# --- Initialisation de NLP ---
+try:
+    nlp = spacy.load("en_core_web_sm")
+    logger.info("Modèle NLP chargé avec succès")
+except Exception as e:
+    logger.warning(f"Impossible de charger le modèle NLP: {e}")
+    nlp = None
+
+
+# --- Initialisation de la base de données ---
+def init_db():
+    try:
+        with sqlite3.connect("reddit_posts.db") as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+            CREATE TABLE IF NOT EXISTS posts (
+                id TEXT PRIMARY KEY,
+                title TEXT,
+                url TEXT,
+                created_utc REAL
+            )
+            """)
+            conn.commit()
+            logger.info("Base de données initialisée avec succès")
+    except sqlite3.Error as e:
+        logger.error(f"Erreur lors de l'initialisation de la base de données: {e}")
+        raise
+
+
+# --- Fonction de Scraping ---
+def scrape_reddit(subreddit: str, query: str, limit: int = 100):
+    try:
+        subreddit_obj = reddit.subreddit(subreddit)
+        posts_scraped = 0
+
+        logger.info(f"Recherche de '{query}' dans r/{subreddit}, limite: {limit}")
+
+        with sqlite3.connect("reddit_posts.db") as conn:
+            cursor = conn.cursor()
+
+            for submission in subreddit_obj.search(query, limit=limit):
+                try:
+                    cursor.execute("INSERT OR IGNORE INTO posts VALUES (?, ?, ?, ?)",
+                                   (submission.id, submission.title, submission.url, submission.created_utc))
+
+                    if cursor.rowcount > 0:
+                        posts_scraped += 1
+                        logger.info(f"Post enregistré: {submission.title[:50]}...")
+                except sqlite3.Error as e:
+                    logger.error(f"Erreur lors de l'insertion du post {submission.id}: {e}")
+
+            conn.commit()
+            logger.info(f"Scraping terminé: {posts_scraped} nouveaux posts enregistrés")
+            return posts_scraped
+    except Exception as e:
+        logger.error(f"Erreur lors du scraping: {e}")
+        return 0
+
+
+# --- API FastAPI ---
+app = FastAPI(title="Reddit Scraper API")
+
+
+@app.get("/")
+def read_root():
+    return {"message": "Bienvenue sur l'API Reddit Scraper!"}
+
+
+@app.get("/posts", response_model=List[Dict])
+def get_posts(limit: int = 100):
+    try:
+        with sqlite3.connect("reddit_posts.db") as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT id, title, url, created_utc FROM posts ORDER BY created_utc DESC LIMIT ?", (limit,))
+            posts = cursor.fetchall()
+
+        if not posts:
+            logger.warning("Aucun post trouvé dans la base de données")
+            return []
+
+        return [{"id": p[0], "title": p[1], "url": p[2], "created_utc": p[3]} for p in posts]
+    except sqlite3.Error as e:
+        logger.error(f"Erreur lors de la récupération des posts: {e}")
+        raise HTTPException(status_code=500, detail="Erreur de base de données")
+
+
+@app.post("/scrape")
+def scrape_endpoint(subreddit: str, query: str, limit: int = 100):
+    try:
+        posts_count = scrape_reddit(subreddit, query, limit)
+        return {"message": f"{posts_count} nouveaux posts ont été récupérés"}
+    except Exception as e:
+        logger.error(f"Erreur lors du scraping via l'API: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+if __name__ == "__main__":
+    # Initialisation de la base de données
+    init_db()
+
+    # Scraping initial
+    try:
+        scrape_reddit("AskDocs", "second opinion", 100)
+    except Exception as e:
+        logger.error(f"Erreur lors du scraping initial: {e}")
+
+    # Lancement du serveur
+    import uvicorn
+
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+
+
+
+
+
+
+
+
+
+=========================
+==================================================
+================================================================================================================================================
+================================================================================================================================================
+================================================================================================================================================
+================================================================================================================================================
+
+
+
+🤖 Phase 2 : Traitement du langage naturel
+📌 Exploitation de SpaCy :
+🔹 Classification des posts pour détecter ceux qui expriment un besoin de deuxième avis
+🔹 Analyse de sentiment pour évaluer le niveau d’urgence ou d’anxiété
+
+================================================================================================================================================
+
+
+Tu veux ajouter deux fonctionnalités de NLP avec SpaCy :
+✅ Classification des posts pour détecter ceux qui expriment un besoin de deuxième avis.
+✅ Analyse de sentiment pour évaluer le niveau d’urgence ou d’anxiété.
+
+🔹 Plan d’implémentation
+Prétraitement des posts (suppression des stopwords, tokenization).
+Classification des posts en détectant des mots-clés spécifiques (ex. "second opinion", "should I worry").
+Analyse de sentiment via un score de polarité (on peut utiliser TextBlob en complément de SpaCy).
+Intégration dans l'API pour ajouter ces fonctionnalités aux endpoints existants.
+✍ Ajout des fonctionnalités NLP dans ton code
+On va : ✅ Ajouter une fonction classify_post() pour détecter les posts demandant un deuxième avis.
+✅ Ajouter une fonction analyze_sentiment() pour évaluer le stress ou l’urgence d’un post.
+
+Voici le code mis à jour :

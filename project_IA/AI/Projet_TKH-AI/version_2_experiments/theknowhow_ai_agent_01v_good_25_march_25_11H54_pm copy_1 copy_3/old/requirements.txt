@@ -1,0 +1,58 @@
+# Dépendances principales
+aiohttp==3.8.5
+aiosqlite==0.19.0
+asyncio==3.4.3
+beautifulsoup4==4.12.2
+dash==2.13.0
+dash-bootstrap-components==1.5.0
+pandas==2.1.0
+praw==7.7.1
+python-dotenv==1.0.0
+requests==2.31.0
+spacy==3.6.1
+textblob==0.15.3
+tqdm==4.66.1
+
+# Dépendances pour le développement
+black==23.7.0
+flake8==6.1.0
+isort==5.12.0
+mypy==1.5.1
+pytest==7.4.0
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0
+
+# Dépendances pour la documentation
+mkdocs==1.5.2
+mkdocs-material==9.2.7
+
+# Modèles spaCy (à installer séparément)
+# python -m spacy download en_core_web_sm
+
+# Scrapers de médias sociaux
+tweepy==4.14.0
+asyncpraw==7.8.1
+facebook-sdk==3.1.0
+instaloader==4.10.0
+linkedin-api==1.1.1
+pytiktokapi==0.0.5
+pytube==15.0.0
+telethon==1.28.5
+pywhatsapp==1.0.0
+
+# Scrapers médicaux
+pubmed-parser==0.3.1
+selenium==4.11.2
+webdriver-manager==4.0.0
+
+# Traitement des données
+nltk==3.8.1
+scikit-learn==1.3.0
+transformers==4.31.0
+
+# Stockage et base de données
+sqlalchemy==2.0.20
+pymongo==4.5.0
+
+# Logging et monitoring
+loguru==0.7.0

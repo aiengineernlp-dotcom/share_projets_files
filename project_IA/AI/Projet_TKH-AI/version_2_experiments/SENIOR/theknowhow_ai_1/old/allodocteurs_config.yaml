@@ -1,0 +1,127 @@
+# Configuration pour le scraper AlloDocteurs
+
+# URL de base du site
+base_url: "https://www.allodocteurs.fr"
+
+# Catégories à scraper
+categories:
+  - "maladies"
+  - "traitements"
+  - "medicaments"
+  - "examens"
+  - "nutrition"
+  - "grossesse"
+  - "psychologie"
+  - "bien-etre"
+  - "actualites"
+  - "prevention"
+
+# Types de contenu à collecter
+content_types:
+  - "articles"
+  - "videos"
+  - "dossiers"
+  - "fiches-pratiques"
+  - "questions-reponses"
+  - "temoignages"
+
+# Paramètres de scraping
+scraping:
+  max_concurrent_requests: 3
+  request_delay: 1.5  # Délai entre les requêtes en secondes
+  timeout: 30
+  retry_count: 3
+  retry_delay: 5.0
+  max_pages_per_category: 100
+  max_articles_per_category: 1000
+  max_depth: 3  # Profondeur maximale pour les liens internes
+
+# Headers HTTP pour les requêtes
+headers:
+  User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+  Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
+  Accept-Language: "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7"
+
+# Configuration du stockage
+storage:
+  database_path: "data/databases/allodocteurs.db"
+  cache_path: "data/cache/allodocteurs"
+  backup_path: "data/backups/allodocteurs"
+  export_path: "data/exports/allodocteurs"
+  media_path: "data/media/allodocteurs"
+  video_path: "data/videos/allodocteurs"
+
+# Configuration du logging
+logging:
+  file_path: "data/logs/allodocteurs.log"
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  rotation: "1 week"
+  max_size: "100MB"
+
+# Filtres de contenu
+content_filters:
+  min_article_length: 500
+  min_video_duration: 60  # en secondes
+  excluded_keywords:
+    - "publicité"
+    - "sponsorisé"
+    - "partenaire"
+    - "annonce"
+  required_keywords:
+    - "santé"
+    - "médical"
+    - "traitement"
+    - "maladie"
+    - "symptômes"
+    - "diagnostic"
+    - "médecin"
+    - "hôpital"
+
+# Paramètres d'extraction des données
+data_extraction:
+  extract_metadata: true
+  extract_images: true
+  extract_videos: true
+  extract_transcripts: true
+  extract_references: true
+  extract_experts: true
+  extract_related_content: true
+  save_html: false
+
+# Paramètres de téléchargement des médias
+media_download:
+  download_images: true
+  download_videos: true
+  max_image_size: 5242880  # 5 MB
+  max_video_size: 524288000  # 500 MB
+  allowed_image_formats:
+    - ".jpg"
+    - ".jpeg"
+    - ".png"
+    - ".gif"
+  allowed_video_formats:
+    - ".mp4"
+    - ".webm"
+
+# Paramètres de qualité
+quality_filters:
+  min_article_rating: 0
+  verified_sources_only: true
+  exclude_user_content: true
+  min_publication_date: "2020-01-01"
+  require_medical_validation: true
+  require_sources: true
+
+# Paramètres de sauvegarde
+backup:
+  enabled: true
+  frequency: "daily"
+  keep_days: 30
+  compress: true
+
+# Paramètres spécifiques à France Télévisions
+france_tv:
+  api_key: ""  # Clé API France Télévisions si nécessaire
+  include_replay: true
+  max_video_age_days: 365 

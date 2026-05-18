@@ -1,0 +1,98 @@
+# Configuration pour le scraper MedHelp
+
+# URL de base du site
+base_url: "https://www.medhelp.org"
+
+# Catégories de santé à scraper
+categories:
+  - "general-health"
+  - "mental-health"
+  - "womens-health"
+  - "mens-health"
+  - "pregnancy"
+  - "diabetes"
+  - "heart-disease"
+  - "cancer"
+  - "allergies"
+  - "infectious-diseases"
+
+# Paramètres de scraping des forums
+forum_scraping:
+  max_threads_per_category: 100
+  max_posts_per_thread: 50
+  min_responses: 2
+  max_thread_age_days: 365
+  sort_by: "most_recent"  # Options: most_recent, most_viewed, most_replied
+
+# Paramètres de scraping
+scraping:
+  max_concurrent_requests: 3
+  request_delay: 2.0  # Délai entre les requêtes en secondes
+  timeout: 30
+  retry_count: 3
+  retry_delay: 5.0
+  max_pages_per_category: 50
+
+# Headers HTTP pour les requêtes
+headers:
+  User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+  Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
+  Accept-Language: "en-US,en;q=0.5"
+
+# Configuration du stockage
+storage:
+  database_path: "data/databases/medhelp.db"
+  cache_path: "data/cache/medhelp"
+  backup_path: "data/backups/medhelp"
+  export_path: "data/exports/medhelp"
+
+# Configuration du logging
+logging:
+  file_path: "data/logs/medhelp.log"
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  rotation: "1 week"
+  max_size: "100MB"
+
+# Filtres de contenu
+content_filters:
+  min_question_length: 50
+  min_answer_length: 100
+  excluded_keywords:
+    - "spam"
+    - "advertisement"
+    - "promoted"
+    - "sponsored"
+  required_keywords:
+    - "symptom"
+    - "treatment"
+    - "diagnosis"
+    - "medicine"
+    - "doctor"
+    - "health"
+    - "medical"
+
+# Paramètres de qualité
+quality_filters:
+  min_user_reputation: 0
+  verified_doctors_only: false
+  include_community_answers: true
+  min_answer_score: -5
+  exclude_deleted: true
+  exclude_closed: false
+
+# Paramètres d'extraction des données
+data_extraction:
+  extract_user_info: true
+  extract_timestamps: true
+  extract_view_counts: true
+  extract_vote_counts: true
+  extract_tags: true
+  save_html: false
+  
+# Paramètres de sauvegarde
+backup:
+  enabled: true
+  frequency: "daily"
+  keep_days: 30
+  compress: true 

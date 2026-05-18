@@ -1,0 +1,59 @@
+# Configuration pour le scraper YouTube
+
+# Paramètres d'API (à remplir)
+api:
+  api_key: ""  # Votre clé API YouTube
+  application_name: "Medical Content Collector"
+
+# Paramètres de scraping
+scraping:
+  max_video_age_days: 30
+  min_views: 1000
+  min_likes: 50
+  collect_comments: true
+  max_comments_per_video: 100
+  max_videos_per_search: 50
+  language_filter: ["fr", "en"]
+
+# Chaînes médicales à suivre
+medical_channels:
+  - "UCZgwcpRFCLxWg9iOPXNu-Dg"  # Exemple: DocMedFr
+  - "UC7sXGI8p8PvKosLWagkK9wQ"  # Exemple: MedicalTeaching
+  - "UC-3SbfTPJsL8fJAPKiVqBLg"  # Exemple: HealthcarePro
+
+# Mots-clés de recherche
+search_keywords:
+  - "medical education"
+  - "healthcare professional"
+  - "medical advice"
+  - "medical procedures"
+  - "health information"
+  - "medical research"
+  - "clinical practice"
+
+# Catégories de contenu
+content_categories:
+  - "27"  # Education
+  - "28"  # Science & Technology
+  - "22"  # People & Blogs (pour les vlogs médicaux)
+
+# Paramètres de stockage
+storage:
+  database_path: "data/databases/youtube_videos.db"
+  media_path: "data/media/youtube"
+  backup_path: "data/backups/youtube"
+  thumbnail_quality: "high"  # high, medium, default
+
+# Paramètres de logging
+logging:
+  level: "INFO"
+  file_path: "data/logs/scraping/youtube.log"
+  max_size: 10485760  # 10 MB
+  backup_count: 5
+
+# Paramètres de connexion
+connection:
+  timeout: 30
+  retry_attempts: 3
+  retry_delay: 5
+  quota_limit_per_day: 10000  # Limite quotidienne de l'API YouTube 

@@ -1,0 +1,176 @@
+# Configuration pour le scraper WHO (Organisation Mondiale de la Santé)
+
+# URL de base du site
+base_url: "https://www.who.int"
+
+# Langues supportées
+languages:
+  - "en"  # Anglais
+  - "fr"  # Français
+  - "es"  # Espagnol
+  - "ar"  # Arabe
+  - "zh"  # Chinois
+  - "ru"  # Russe
+
+# Sections à scraper
+sections:
+  - name: "News"
+    url: "/news"
+    priority: 1
+  - name: "Emergencies"
+    url: "/emergencies"
+    priority: 1
+  - name: "Health Topics"
+    url: "/health-topics"
+    priority: 1
+  - name: "Publications"
+    url: "/publications"
+    priority: 2
+  - name: "Data"
+    url: "/data"
+    priority: 2
+  - name: "Fact Sheets"
+    url: "/news-room/fact-sheets"
+    priority: 1
+
+# Types de contenu
+content_types:
+  - "news-releases"
+  - "statements"
+  - "situation-reports"
+  - "disease-outbreaks"
+  - "technical-guidance"
+  - "scientific-briefs"
+  - "research-papers"
+  - "statistics"
+  - "reports"
+  - "fact-sheets"
+
+# Paramètres de scraping
+scraping:
+  max_concurrent_requests: 3
+  request_delay: 2.0  # Délai entre les requêtes en secondes
+  timeout: 30
+  retry_count: 3
+  retry_delay: 5.0
+  max_pages_per_section: 100
+  max_depth: 3
+  respect_robots_txt: true
+  update_frequency: "hourly"
+
+# Headers HTTP pour les requêtes
+headers:
+  User-Agent: "Mozilla/5.0 (compatible; HealthOrganizationBot/1.0; +https://www.example.com/bot)"
+  Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+  Accept-Language: "en,fr;q=0.9,es;q=0.8"
+
+# Configuration du stockage
+storage:
+  database_path: "data/databases/who.db"
+  cache_path: "data/cache/who"
+  backup_path: "data/backups/who"
+  export_path: "data/exports/who"
+  media_path: "data/media/who"
+  pdf_path: "data/documents/who"
+
+# Configuration du logging
+logging:
+  file_path: "data/logs/who.log"
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  rotation: "1 week"
+  max_size: "100MB"
+
+# Paramètres d'extraction des données
+data_extraction:
+  extract_metadata: true
+  extract_pdf: true
+  extract_images: true
+  extract_tables: true
+  extract_statistics: true
+  extract_references: true
+  extract_related_content: true
+  save_html: false
+  translate_to_french: true
+
+# Paramètres de traduction
+translation:
+  enabled: true
+  source_language: "en"
+  target_language: "fr"
+  service: "deepl"  # Service professionnel recommandé
+  batch_size: 50
+  preserve_formatting: true
+  translate_fields:
+    - "title"
+    - "content"
+    - "summary"
+    - "recommendations"
+
+# Filtres de contenu
+content_filters:
+  min_content_length: 200
+  excluded_keywords:
+    - "private"
+    - "internal"
+    - "draft"
+  required_keywords:
+    - "health"
+    - "disease"
+    - "medical"
+    - "public health"
+    - "outbreak"
+    - "emergency"
+  priority_topics:
+    - "covid-19"
+    - "pandemic"
+    - "epidemic"
+    - "vaccination"
+    - "global health"
+
+# Paramètres de qualité
+quality_filters:
+  require_date: true
+  require_source: true
+  require_category: true
+  verify_links: true
+  check_pdf_integrity: true
+
+# Paramètres de notification
+notifications:
+  enabled: true
+  channels:
+    - "email"
+    - "slack"
+  triggers:
+    - "emergency_update"
+    - "new_outbreak"
+    - "important_guidance"
+    - "error_alert"
+
+# Paramètres de sauvegarde
+backup:
+  enabled: true
+  frequency: "hourly"
+  keep_days: 90
+  compress: true
+  encrypt: false
+
+# API Configuration
+api:
+  enabled: true
+  base_url: "https://www.who.int/api"
+  version: "v1"
+  key: ""  # Clé API si nécessaire
+
+# RSS Feeds
+rss:
+  enabled: true
+  check_frequency: 900  # en secondes
+  feeds:
+    - name: "WHO News"
+      url: "https://www.who.int/rss-feeds/news-english.xml"
+    - name: "Disease Outbreaks"
+      url: "https://www.who.int/rss-feeds/disease-outbreaks.xml"
+    - name: "Emergencies"
+      url: "https://www.who.int/rss-feeds/emergencies.xml" 

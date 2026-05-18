@@ -1,0 +1,184 @@
+# Configuration pour le scraper MedRxiv
+
+# URL de base du site
+base_url: "https://www.medrxiv.org"
+
+# API Configuration
+api:
+  enabled: true
+  base_url: "https://api.medrxiv.org"
+  version: "v1"
+  key: ""  # Clé API si nécessaire
+  rate_limit: 100  # Requêtes par minute
+
+# Catégories de recherche
+categories:
+  - "Addiction Medicine"
+  - "Allergy and Immunology"
+  - "Anesthesia"
+  - "Cardiovascular Medicine"
+  - "Dentistry and Oral Medicine"
+  - "Dermatology"
+  - "Emergency Medicine"
+  - "Endocrinology"
+  - "Epidemiology"
+  - "Forensic Medicine"
+  - "Gastroenterology"
+  - "Genetic and Genomic Medicine"
+  - "Geriatric Medicine"
+  - "Health Economics"
+  - "Health Informatics"
+  - "Health Policy"
+  - "Health Systems and Quality Improvement"
+  - "Infectious Diseases"
+  - "Intensive Care and Critical Care Medicine"
+  - "Medical Education"
+  - "Nephrology"
+  - "Neurology"
+  - "Nursing"
+  - "Nutrition"
+  - "Oncology"
+  - "Ophthalmology"
+  - "Orthopedics"
+  - "Otolaryngology"
+  - "Pain Medicine"
+  - "Palliative Medicine"
+  - "Pathology"
+  - "Pediatrics"
+  - "Pharmacology and Therapeutics"
+  - "Primary Care Research"
+  - "Psychiatry and Clinical Psychology"
+  - "Public and Global Health"
+  - "Radiology and Imaging"
+  - "Rehabilitation Medicine and Physical Therapy"
+  - "Respiratory Medicine"
+  - "Rheumatology"
+  - "Sexual and Reproductive Health"
+  - "Sports Medicine"
+  - "Surgery"
+  - "Toxicology"
+  - "Transplantation"
+  - "Urology"
+
+# Paramètres de recherche
+search:
+  date_range:
+    start: "2020-01-01"
+    end: ""  # Vide pour la date actuelle
+  sort_by: "date"  # Options: date, relevance, downloads
+  results_per_page: 100
+  max_pages: 1000
+
+# Paramètres de scraping
+scraping:
+  max_concurrent_requests: 3
+  request_delay: 1.0  # Délai entre les requêtes en secondes
+  timeout: 30
+  retry_count: 3
+  retry_delay: 5.0
+  max_papers_per_category: 1000
+  update_frequency: "daily"
+
+# Headers HTTP pour les requêtes
+headers:
+  User-Agent: "Mozilla/5.0 (compatible; MedicalResearchBot/1.0; +https://www.example.com/bot)"
+  Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+  Accept-Language: "en-US,en;q=0.5"
+
+# Configuration du stockage
+storage:
+  database_path: "data/databases/medrxiv.db"
+  cache_path: "data/cache/medrxiv"
+  backup_path: "data/backups/medrxiv"
+  export_path: "data/exports/medrxiv"
+  pdf_path: "data/documents/medrxiv"
+
+# Configuration du logging
+logging:
+  file_path: "data/logs/medrxiv.log"
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  rotation: "1 week"
+  max_size: "100MB"
+
+# Paramètres d'extraction des données
+data_extraction:
+  extract_metadata: true
+  extract_abstract: true
+  extract_full_text: true
+  extract_references: true
+  extract_figures: true
+  extract_tables: true
+  extract_supplementary_materials: true
+  save_pdf: true
+  translate_to_french: true
+
+# Paramètres de traduction
+translation:
+  enabled: true
+  source_language: "en"
+  target_language: "fr"
+  service: "deepl"  # Service professionnel recommandé
+  batch_size: 50
+  preserve_formatting: true
+  translate_fields:
+    - "title"
+    - "abstract"
+    - "keywords"
+    - "highlights"
+
+# Filtres de contenu
+content_filters:
+  min_abstract_length: 100
+  required_fields:
+    - "title"
+    - "abstract"
+    - "authors"
+    - "doi"
+  excluded_keywords:
+    - "retracted"
+    - "withdrawn"
+  required_keywords:
+    - "medical"
+    - "clinical"
+    - "health"
+    - "patient"
+    - "treatment"
+
+# Paramètres de qualité
+quality_filters:
+  require_ethics_statement: true
+  require_methods_section: true
+  require_results_section: true
+  require_discussion_section: true
+  min_reference_count: 10
+  check_plagiarism: true
+
+# Paramètres de notification
+notifications:
+  enabled: true
+  channels:
+    - "email"
+    - "slack"
+  triggers:
+    - "new_paper"
+    - "paper_update"
+    - "retraction"
+    - "error_alert"
+
+# Paramètres de sauvegarde
+backup:
+  enabled: true
+  frequency: "daily"
+  keep_days: 90
+  compress: true
+
+# RSS Feeds
+rss:
+  enabled: true
+  check_frequency: 3600  # en secondes
+  feeds:
+    - name: "Latest Articles"
+      url: "https://www.medrxiv.org/rss/recent.xml"
+    - name: "Most Downloaded"
+      url: "https://www.medrxiv.org/rss/most_downloaded.xml" 

@@ -1,0 +1,205 @@
+# ==============================================
+# FICHIER DE CONFIGURATION PYTHON
+# ==============================================
+#
+# RÔLE PRINCIPAL :
+# --------------
+# Ce fichier pyproject.toml est le point central de configuration du projet Python.
+# Il définit :
+# - Les métadonnées du projet
+# - Les dépendances
+# - Les configurations des outils de développement
+# - Les paramètres de build
+#
+# RELATIONS AVEC LES AUTRES FICHIERS :
+# ---------------------------------
+# - requirements.txt : Dépendances pour l'installation directe
+# - poetry.lock : Verrouillage des versions des dépendances
+# - setup.py : Configuration de build (si utilisé)
+# - .env : Variables d'environnement utilisées par le projet
+#
+# STRUCTURE DU CONTENU :
+# --------------------
+# Le fichier est organisé en sections :
+# 1. [build-system] : Configuration du système de build
+# 2. [tool.black] : Configuration du formateur de code
+# 3. [tool.isort] : Configuration du tri des imports
+# 4. [tool.mypy] : Configuration du vérificateur de types
+# 5. [tool.pytest.ini_options] : Configuration des tests
+# 6. [tool.coverage.run] : Configuration de la couverture de code
+# 7. [tool.bandit] : Configuration de la sécurité
+# 8. [tool.pylint] : Configuration du linter
+# 9. [tool.flake8] : Configuration du style de code
+# 10. [tool.poetry] : Métadonnées et dépendances du projet
+#
+# IMPORTANCE ET SUPPRESSION :
+# -------------------------
+# Ce fichier est CRITIQUE et ne doit PAS être supprimé car :
+# - Il est le point central de configuration du projet
+# - Il est requis par Poetry pour la gestion des dépendances
+# - Il contient des configurations essentielles pour le développement
+# - Il est référencé par de nombreux outils de CI/CD
+#
+# NOTE DE MAINTENANCE :
+# -------------------
+# - Maintenir à jour les versions des dépendances
+# - Vérifier la compatibilité des outils configurés
+# - Documenter les changements dans CHANGELOG.md
+# - Tester les configurations après modification
+#
+# ==============================================
+
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 100
+target-version = ['py39']
+include = '\.pyi?$'
+extend-exclude = '''
+# A regex preceded with ^/ will apply only to files and directories
+# in the root of the project.
+^/docs/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 100
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+skip = ["docs/"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_optional = true
+
+[[tool.mypy.overrides]]
+module = [
+    "numpy.*",
+    "tensorflow.*",
+    "torch.*",
+    "cv2.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-v --cov=phase1_data_collection --cov-report=term-missing"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[tool.coverage.run]
+branch = true
+source = ["phase1_data_collection"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "pass",
+    "raise ImportError",
+]
+
+[tool.bandit]
+exclude_dirs = ["tests", "docs"]
+skips = ["B101", "B404", "B603"]
+targets = ["phase1_data_collection"]
+
+[tool.pylint]
+max-line-length = 100
+disable = [
+    "C0111",  # missing-docstring
+    "C0103",  # invalid-name
+    "C0302",  # too-many-lines
+    "R0903",  # too-few-public-methods
+    "R0913",  # too-many-arguments
+    "R0914",  # too-many-locals
+]
+output-format = "colorized"
+reports = "no"
+jobs = 4
+
+[tool.flake8]
+max-line-length = 100
+exclude = ["docs/*", "tests/*"]
+ignore = ["E203", "W503"]
+max-complexity = 10
+
+[tool.poetry]
+name = "medical_data_collection"
+version = "1.0.0"
+description = "Collecte et analyse de données médicales - Phase 1"
+authors = ["TheKnowHow AI Team <contact@theknowhow.ai>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/theknowhow/medical_data_collection"
+repository = "https://github.com/theknowhow/medical_data_collection"
+documentation = "https://medical-data-collection.readthedocs.io/"
+keywords = ["medical", "data", "collection", "nlp", "ai"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Healthcare Industry",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+spacy = "^3.5.0"
+nltk = "^3.8.0"
+textblob = "^0.17.1"
+scikit-learn = "^1.0.2"
+transformers = "^4.26.0"
+requests = "^2.28.0"
+beautifulsoup4 = "^4.11.0"
+selenium = "^4.8.0"
+aiohttp = "^3.8.0"
+pandas = "^1.5.0"
+numpy = "^1.21.0"
+redis = "^4.5.0"
+boto3 = "^1.26.0"
+python-dotenv = "^0.19.0"
+pyyaml = "^6.0.0"
+configparser = "^5.3.0"
+cryptography = "^39.0.0"
+pydantic = "^1.10.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.3.1"
+pytest-cov = "^4.0.0"
+pytest-mock = "^3.10.0"
+pytest-asyncio = "^0.20.0"
+black = "^23.1.0"
+flake8 = "^6.0.0"
+mypy = "^1.0.0"
+isort = "^5.12.0"
+pre-commit = "^3.1.0"
+pylint = "^2.17.0"
+bandit = "^1.7.5"
+safety = "^2.3.5"
+
+[tool.poetry.scripts]
+run-scraper = "phase1_data_collection.run_scraper:main"
+run-processor = "phase1_data_collection.run_processor:main"
+run-analysis = "phase1_data_collection.run_analysis:main" 

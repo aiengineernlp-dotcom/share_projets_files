@@ -1,0 +1,13 @@
+torch>=2.0.0
+transformers>=4.30.0
+datasets>=2.12.0
+spacy>=3.5.0
+langdetect>=1.0.9
+numpy>=1.24.0
+pandas>=2.0.0
+scikit-learn>=1.2.0
+tqdm>=4.65.0
+python-dotenv>=1.0.0
+accelerate>=0.20.0
+optuna>=3.2.0
+wandb>=0.15.0 

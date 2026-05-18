@@ -1,0 +1,219 @@
+# ==============================================
+# FICHIER DE CONFIGURATION GIT
+# ==============================================
+#
+# RÔLE PRINCIPAL :
+# --------------
+# Ce fichier .gitignore définit les fichiers et dossiers à exclure du contrôle de version.
+# Il protège :
+# - Les fichiers sensibles
+# - Les fichiers temporaires
+# - Les fichiers de build
+# - Les fichiers de cache
+#
+# RELATIONS AVEC LES AUTRES FICHIERS :
+# ---------------------------------
+# - .env : Fichier de variables d'environnement (exclu)
+# - data/* : Données (exclues)
+# - logs/* : Fichiers de log (exclus)
+# - __pycache__/* : Cache Python (exclu)
+#
+# STRUCTURE DU CONTENU :
+# --------------------
+# Le fichier est organisé en sections :
+# 1. Fichiers Python (__pycache__, .pyc, etc.)
+# 2. Environnements virtuels
+# 3. Fichiers IDE
+# 4. Logs et données
+# 5. Cache
+# 6. Notebooks
+# 7. Fichiers de sécurité
+# 8. Fichiers système
+# 9. Dépendances
+# 10. Distribution
+# 11. Documentation générée
+# 12. Fichiers temporaires
+# 13. Fichiers de configuration locaux
+# 14. Fichiers de test
+# 15. Fichiers de migration
+# 16. Fichiers de cache
+# 17. Fichiers de build
+# 18. Fichiers de package
+# 19. Fichiers de backup
+# 20. Fichiers de session
+# 21. Fichiers de tags
+# 22. Fichiers de profiling
+#
+# IMPORTANCE ET SUPPRESSION :
+# -------------------------
+# Ce fichier est CRITIQUE et ne doit PAS être supprimé car :
+# - Il protège les informations sensibles
+# - Il évite la pollution du dépôt
+# - Il optimise la taille du dépôt
+# - Il assure la sécurité du projet
+#
+# NOTE DE MAINTENANCE :
+# -------------------
+# - Maintenir à jour les patterns d'exclusion
+# - Vérifier les fichiers sensibles
+# - Optimiser les exclusions
+# - Documenter les changements dans CHANGELOG.md
+#
+# ==============================================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Environnement virtuel
+venv/
+ENV/
+env/
+.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs et données
+*.log
+logs/
+data/
+*.db
+*.sqlite3
+*.csv
+*.json
+!example_data/*.json
+!example_data/*.csv
+
+# Cache
+.cache/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.coverage.*
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Notebooks
+.ipynb_checkpoints
+*.ipynb
+
+# Spacy
+.spacy
+
+# Sécurité
+*.pem
+*.key
+*.crt
+*.cer
+*.der
+*.priv
+*.pub
+
+# Système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dépendances
+node_modules/
+bower_components/
+
+# Distribution
+dist/
+build/
+
+# Documentation générée
+docs/_build/
+site/
+
+# Fichiers temporaires
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+
+# Fichiers de configuration locaux
+config/local.py
+config/*.local.yml
+config/*.local.yaml
+config/*.local.json
+
+# Fichiers de test
+.coverage
+coverage.xml
+nosetests.xml
+junit-*.xml
+
+# Fichiers de migration
+*/migrations/*.py
+!*/migrations/__init__.py
+
+# Fichiers de cache
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.py[cod]
+*$py.class
+
+# Fichiers de build
+*.mo
+*.pot
+
+# Fichiers de package
+*.tar.gz
+*.zip
+*.rar
+
+# Fichiers de backup
+*.bak
+*.gho
+*.ori
+*.orig
+*.tmp
+
+# Fichiers de session
+Session.vim
+Sessionx.vim
+
+# Fichiers de tags
+tags
+.tags
+.tags1
+tags.lock
+tags.temp
+tags.tmp
+
+# Fichiers de profiling
+*.prof
+*.lprof
+*.stats 

@@ -1,0 +1,169 @@
+# ==============================================
+# FICHIER DE COMPOSITION DOCKER
+# ==============================================
+#
+# RÔLE PRINCIPAL :
+# --------------
+# Ce fichier docker-compose.yml orchestre l'ensemble des services nécessaires
+# pour l'application de collecte de données médicales. Il définit :
+# - Les services de l'application
+# - Les services de base de données
+# - Les services de cache
+# - Les services de monitoring
+#
+# RELATIONS AVEC LES AUTRES FICHIERS :
+# ---------------------------------
+# - Dockerfile : Configuration de l'image de l'application
+# - .env : Variables d'environnement pour les services
+# - monitoring/* : Configurations des services de monitoring
+# - data/* : Volumes de données persistantes
+#
+# STRUCTURE DU CONTENU :
+# --------------------
+# Le fichier est organisé en services :
+# 1. app : Service principal de l'application
+# 2. db : Service de base de données PostgreSQL
+# 3. redis : Service de cache
+# 4. prometheus : Service de monitoring
+# 5. grafana : Service de visualisation
+#
+# Chaque service contient :
+# - Configuration de build
+# - Variables d'environnement
+# - Volumes
+# - Ports
+# - Dépendances
+# - Healthcheck
+#
+# IMPORTANCE ET SUPPRESSION :
+# -------------------------
+# Ce fichier est CRITIQUE et ne doit PAS être supprimé car :
+# - Il orchestre l'ensemble des services
+# - Il définit l'architecture de déploiement
+# - Il est nécessaire pour le développement local
+# - Il est utilisé par les environnements de production
+#
+# NOTE DE MAINTENANCE :
+# -------------------
+# - Maintenir la cohérence des versions des services
+# - Vérifier les dépendances entre services
+# - Optimiser les ressources allouées
+# - Documenter les changements dans CHANGELOG.md
+#
+# ==============================================
+
+version: '3.8'
+
+services:
+  app:
+    build: .
+    image: theknowhow/medical_data_collection:1.0.0
+    container_name: medical_data_collection
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - data:/data
+      - ./logs:/app/logs
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+      - db
+    networks:
+      - medical_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  db:
+    image: postgres:13-alpine
+    container_name: medical_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-medical_db}
+      POSTGRES_USER: ${DB_USER:-medical_user}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-medical_password}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - medical_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-medical_user} -d ${DB_NAME:-medical_db}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  redis:
+    image: redis:6-alpine
+    container_name: medical_cache
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - medical_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  prometheus:
+    image: prom/prometheus:v2.30.3
+    container_name: medical_prometheus
+    restart: unless-stopped
+    volumes:
+      - ./monitoring/prometheus:/etc/prometheus
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    ports:
+      - "9090:9090"
+    networks:
+      - medical_network
+
+  grafana:
+    image: grafana/grafana:8.2.2
+    container_name: medical_grafana
+    restart: unless-stopped
+    volumes:
+      - ./monitoring/grafana:/etc/grafana/provisioning
+      - grafana_data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_ADMIN_USER:-admin}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD:-admin}
+      - GF_USERS_ALLOW_SIGN_UP=false
+    ports:
+      - "3000:3000"
+    networks:
+      - medical_network
+    depends_on:
+      - prometheus
+
+volumes:
+  data:
+    name: medical_data
+  postgres_data:
+    name: medical_postgres_data
+  redis_data:
+    name: medical_redis_data
+  prometheus_data:
+    name: medical_prometheus_data
+  grafana_data:
+    name: medical_grafana_data
+
+networks:
+  medical_network:
+    name: medical_network
+    driver: bridge 

@@ -1,0 +1,13 @@
+base_url: https://www.doctissimo.fr
+categories:
+- sante
+- medicaments
+- maladies
+- nutrition
+max_articles: 5
+request_delay: 2.0
+storage:
+  database_path: /Users/ermanw/IA/CURSOR_NEW/IA_Agents_TKH_01 2/data/databases/medical_websites/doctissimo/doctissimo.db
+timeout: 30
+user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
+  Gecko) Chrome/91.0.4472.124 Safari/537.36

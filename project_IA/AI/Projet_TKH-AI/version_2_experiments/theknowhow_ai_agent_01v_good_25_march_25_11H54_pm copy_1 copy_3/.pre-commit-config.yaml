@@ -1,0 +1,127 @@
+# ==============================================
+# FICHIER DE CONFIGURATION PRE-COMMIT
+# ==============================================
+#
+# RÔLE PRINCIPAL :
+# --------------
+# Ce fichier .pre-commit-config.yaml configure les vérifications automatiques
+# exécutées avant chaque commit. Il définit :
+# - Les hooks de pré-commit
+# - Les outils de vérification
+# - Les règles de validation
+# - Les actions automatiques
+#
+# RELATIONS AVEC LES AUTRES FICHIERS :
+# ---------------------------------
+# - pyproject.toml : Configuration des outils de développement
+# - .pylintrc : Configuration du linter
+# - pytest.ini : Configuration des tests
+# - .gitignore : Fichiers à ignorer
+#
+# STRUCTURE DU CONTENU :
+# --------------------
+# Le fichier est organisé en sections :
+# 1. Configuration générale
+# 2. Hooks de vérification de code
+# 3. Hooks de formatage
+# 4. Hooks de sécurité
+# 5. Hooks de tests
+# 6. Hooks de documentation
+#
+# IMPORTANCE ET SUPPRESSION :
+# -------------------------
+# Ce fichier est CRITIQUE et ne doit PAS être supprimé car :
+# - Il assure la qualité du code
+# - Il prévient les erreurs avant le commit
+# - Il standardise le format du code
+# - Il automatise les vérifications
+#
+# NOTE DE MAINTENANCE :
+# -------------------
+# - Maintenir à jour les versions des hooks
+# - Vérifier la compatibilité des outils
+# - Optimiser les performances
+# - Documenter les changements
+#
+# ==============================================
+
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-added-large-files
+    -   id: check-ast
+    -   id: check-json
+    -   id: check-merge-conflict
+    -   id: detect-private-key
+    -   id: check-case-conflict
+    -   id: mixed-line-ending
+
+-   repo: https://github.com/psf/black
+    rev: 23.3.0
+    hooks:
+    -   id: black
+        language_version: python3
+        args: [--line-length=100]
+
+-   repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+    -   id: isort
+        args: [--profile=black, --line-length=100]
+
+-   repo: https://github.com/pycqa/flake8
+    rev: 6.0.0
+    hooks:
+    -   id: flake8
+        additional_dependencies: [
+            flake8-docstrings,
+            flake8-bugbear,
+            flake8-comprehensions,
+            flake8-simplify,
+        ]
+        args: [--max-line-length=100]
+
+-   repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.3.0
+    hooks:
+    -   id: mypy
+        additional_dependencies: [types-all]
+        args: [--ignore-missing-imports]
+
+-   repo: https://github.com/PyCQA/bandit
+    rev: 1.7.5
+    hooks:
+    -   id: bandit
+        args: ["-c", "pyproject.toml"]
+        additional_dependencies: ["bandit[toml]"]
+
+-   repo: https://github.com/Lucas-C/pre-commit-hooks-safety
+    rev: v1.3.1
+    hooks:
+    -   id: python-safety-dependencies-check
+
+-   repo: local
+    hooks:
+    -   id: pytest-check
+        name: pytest-check
+        entry: pytest
+        language: system
+        pass_filenames: false
+        always_run: true
+        args: ["-v", "--cov=phase1_data_collection", "--cov-fail-under=80"]
+
+    -   id: pylint
+        name: pylint
+        entry: pylint
+        language: system
+        types: [python]
+        args: [
+            "-rn", # Only display messages
+            "-sn", # Don't display the score
+            "--rcfile=.pylintrc", # Link to your config file
+            "--load-plugins=pylint.extensions.docparams", # Load an extension
+        ] 

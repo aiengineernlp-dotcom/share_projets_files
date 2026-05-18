@@ -1,0 +1,197 @@
+# ==============================================
+# FICHIER DE CONFIGURATION DOCKER IGNORE
+# ==============================================
+#
+# RÔLE PRINCIPAL :
+# --------------
+# Ce fichier .dockerignore définit les fichiers et dossiers à exclure
+# lors de la construction de l'image Docker. Il :
+# - Optimise la taille de l'image
+# - Protège les informations sensibles
+# - Accélère le build
+# - Évite les conflits
+#
+# RELATIONS AVEC LES AUTRES FICHIERS :
+# ---------------------------------
+# - Dockerfile : Configuration de l'image
+# - docker-compose.yml : Orchestration des services
+# - .env : Variables d'environnement
+# - .gitignore : Fichiers ignorés par Git
+#
+# STRUCTURE DU CONTENU :
+# --------------------
+# Le fichier est organisé en sections :
+# 1. Fichiers de développement
+# 2. Fichiers de test
+# 3. Fichiers de documentation
+# 4. Fichiers de cache
+# 5. Fichiers de configuration
+# 6. Fichiers de données
+# 7. Fichiers système
+#
+# IMPORTANCE ET SUPPRESSION :
+# -------------------------
+# Ce fichier est CRITIQUE et ne doit PAS être supprimé car :
+# - Il optimise les builds Docker
+# - Il protège les données sensibles
+# - Il améliore la sécurité
+# - Il réduit la taille des images
+#
+# NOTE DE MAINTENANCE :
+# -------------------
+# - Maintenir à jour les exclusions
+# - Vérifier les fichiers sensibles
+# - Optimiser les patterns
+# - Documenter les changements
+#
+# ==============================================
+
+# Git
+.git
+.gitignore
+.gitattributes
+.github/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Environnement virtuel
+venv/
+ENV/
+env/
+.env
+.env.*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs et données
+*.log
+logs/
+data/
+*.db
+*.sqlite3
+*.csv
+*.json
+!example_data/*.json
+!example_data/*.csv
+
+# Cache
+.cache/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.coverage.*
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Notebooks
+.ipynb_checkpoints
+*.ipynb
+
+# Documentation
+docs/_build/
+site/
+
+# Fichiers temporaires
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+
+# Fichiers de configuration locaux
+config/local.py
+config/*.local.yml
+config/*.local.yaml
+config/*.local.json
+
+# Fichiers de test
+.coverage
+coverage.xml
+nosetests.xml
+junit-*.xml
+
+# Fichiers de build
+*.mo
+*.pot
+*.pyc
+*.pyo
+*.pyd
+
+# Fichiers de package
+*.tar.gz
+*.zip
+*.rar
+
+# Fichiers de backup
+*.bak
+*.gho
+*.ori
+*.orig
+*.tmp
+
+# Fichiers de session
+Session.vim
+Sessionx.vim
+
+# Fichiers de tags
+tags
+.tags
+.tags1
+tags.lock
+tags.temp
+tags.tmp
+
+# Fichiers de profiling
+*.prof
+*.lprof
+*.stats
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+# Autres
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+
+# Spécifique au projet
+backups/
+models/
+*.model
+*.bin
+*.vec
+*.pkl 

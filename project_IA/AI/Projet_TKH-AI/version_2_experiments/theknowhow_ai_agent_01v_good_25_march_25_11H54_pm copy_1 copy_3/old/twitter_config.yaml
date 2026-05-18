@@ -1,0 +1,38 @@
+# Configuration pour le scraper Twitter
+
+# Credentials API (à remplir)
+bearer_token: ""
+api_key: ""
+api_secret: ""
+access_token: ""
+access_token_secret: ""
+
+# Paramètres de scraping
+min_likes: 1
+min_retweets: 0
+max_post_age_days: 30
+
+# Paramètres de recherche
+search_languages:
+  - fr
+  - en
+
+# Groupes médicaux à suivre
+medical_accounts:
+  - WHO
+  - CDCgov
+  - NIH
+  - NEJM
+  - TheLancet
+  - JAMA_current
+  - MayoClinic
+  - ClevelandClinic
+
+# Paramètres de stockage
+database:
+  path: "data/databases/twitter_posts.db"
+  
+# Paramètres de logging
+logging:
+  level: INFO
+  file: "data/logs/scraping/twitter.log" 

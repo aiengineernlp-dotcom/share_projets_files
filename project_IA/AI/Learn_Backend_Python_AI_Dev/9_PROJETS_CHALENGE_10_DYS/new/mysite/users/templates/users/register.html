@@ -1,0 +1,254 @@
+{% extends 'food/base.html' %}
+
+{% block body %}
+
+<!--DEEPSEEK-->
+
+<form method="POST" style="
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 40px;
+    background: rgba(20, 20, 30, 0.95);
+    border-radius: 16px;
+    box-shadow: 0px 0px 20px rgba(0, 200, 255, 0.6);
+    text-align: center;
+    color: #00eaff;
+    font-family: 'Orbitron', sans-serif;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0, 200, 255, 0.3);
+    backdrop-filter: blur(10px);
+">
+  {% csrf_token %}
+  <h2 style="
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      font-size: 24px;
+      letter-spacing: 3px;
+      background: linear-gradient(45deg, #00eaff, #0066ff);
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: glow 2s infinite alternate;
+  ">
+    🔹 Register 🔹
+  </h2>
+  <div style="margin-bottom: 20px;">
+    {% for field in form %}
+      <div style="margin-bottom: 15px;">
+        <label for="{{ field.id_for_label }}" style="
+            display: block;
+            text-align: left;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #00eaff;
+        ">
+          {{ field.label }}
+        </label>
+        {{ field }}
+      </div>
+    {% endfor %}
+  </div>
+  <button type="submit" style="
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(45deg, #00eaff, #0066ff);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: all 0.3s ease-in-out;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      position: relative;
+      overflow: hidden;
+  " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0px 0px 20px rgba(0, 200, 255, 0.8)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+    <span style="position: relative; z-index: 2;">🚀 SIGN UP 🚀</span>
+    <span style="
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 300%;
+        height: 300%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+        transform: translate(-50%, -50%) scale(0);
+        transition: transform 0.5s ease;
+        z-index: 1;
+    "></span>
+  </button>
+
+  <!-- Effet des cercles lumineux -->
+  <div style="
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, rgba(0, 200, 255, 0.4), transparent);
+      border-radius: 50%;
+      animation: float 6s infinite ease-in-out;
+  "></div>
+  <div style="
+      position: absolute;
+      bottom: -80px;
+      right: -80px;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(0, 200, 255, 0.3), transparent);
+      border-radius: 50%;
+      animation: float 8s infinite ease-in-out;
+  "></div>
+</form>
+
+<!-- Animations CSS -->
+<style>
+  @keyframes glow {
+    0% { text-shadow: 0px 0px 5px rgba(0, 200, 255, 0.5); }
+    100% { text-shadow: 0px 0px 20px rgba(0, 200, 255, 0.8); }
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+  }
+
+  /* Style pour les champs du formulaire */
+  input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 200, 255, 0.3);
+    border-radius: 8px;
+    color: #00eaff;
+    font-family: 'Orbitron', sans-serif;
+    transition: all 0.3s ease;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #00eaff;
+    box-shadow: 0px 0px 10px rgba(0, 200, 255, 0.5);
+    outline: none;
+  }
+</style>
+
+
+
+
+<!--SON CODE-->
+<div class="container">
+    <div class="row ">
+        <div class="cold-md-4 offset-md-2 " >
+            <div class="card">
+                <div class="card-header bg-info">
+                    <div class="card-title text-white  ">Register</div>
+                </div>
+                <div class="card-body">
+                    <form method="POST" >
+    {% csrf_token %}
+    {% for field in form %}
+                        <div class="form-group">
+                            {{ field.name }}
+                            <br>
+                            {{ field }}
+
+                        </div>
+                        {% endfor %}
+    <button class="btn btn-info" type="submit" > SIGN UP </button>
+</form>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+<!--GPT-1 -->
+
+<div class="container">
+  <div class="row justify-content-center align-items-center min-vh-100">
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+          <h4 class="mb-0">Register</h4>
+        </div>
+        <div class="card-body">
+          <form method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+              <div class="form-group mb-3">
+                <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                {{ field }}
+              </div>
+            {% endfor %}
+            <button class="btn btn-primary btn-block" type="submit">Sign Up</button>
+          </form>
+        </div>
+        <div class="card-footer text-center">
+          <small>Already have an account? <a href="#">Login</a></small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--GPT-2 -->
+<div class="container">
+  <div class="row justify-content-center align-items-center min-vh-100">
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-lg border-0 rounded-4 bg-dark text-light">
+        <div class="card-header bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-center text-white py-4 rounded-t-4">
+          <h4 class="mb-0">Register</h4>
+        </div>
+        <div class="card-body">
+          <form method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+              <div class="form-group mb-4">
+                <label for="{{ field.id_for_label }}" class="form-label text-light">{{ field.label }}</label>
+                <div class="input-group input-group-lg">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-dark text-white">
+                      <i class="bi bi-person-circle"></i> <!-- Icon example -->
+                    </span>
+                  </div>
+                  {{ field }}
+                </div>
+              </div>
+            {% endfor %}
+            <button class="btn btn-lg btn-primary w-100 py-3" type="submit">
+              <i class="bi bi-lock-fill"></i> SIGN UP
+            </button>
+          </form>
+        </div>
+        <div class="card-footer bg-dark text-center py-3 rounded-b-4">
+          <small>Already have an account? <a href="#" class="text-info">Login</a></small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+
+
+
+
+{% endblock %}
+
+
+

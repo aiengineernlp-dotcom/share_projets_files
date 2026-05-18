@@ -1,0 +1,53 @@
+      print('================== CLASSES===============================================================================================\n')
+
+    '''
+    Représente un utilisateur qui peut emprunter des livres.
+
+    Attributs :
+    - nom (str) : le nom de l'utilisateur.
+    - livres_empruntes (list) : liste des livres empruntés par l'utilisateur.
+
+    Méthodes :
+    - emprunter(livre) : permet d'emprunter un livre s'il est disponible.
+    '''
+
+
+
+  print('================== METHODES ===============================================================================================\n')
+
+
+
+    '''
+
+    Objectif :
+
+    Conditions :
+    -
+
+    Effets :
+    -
+    -
+
+    '''
+
+
+  print('======= EXEMPLES=========== METHODES  ===============================================================================================\n')
+
+
+    '''
+
+    Objectif : permettre à l'utilisateur d'emprunter un livre.
+
+    Conditions :
+    - Le livre doit être disponible.
+
+    Effets :
+    - Le livre est ajouté à la liste des emprunts.
+    - Le livre devient indisponible.
+
+    '''
+  print('================== ===============================================================================================\n')
+
+
+
+

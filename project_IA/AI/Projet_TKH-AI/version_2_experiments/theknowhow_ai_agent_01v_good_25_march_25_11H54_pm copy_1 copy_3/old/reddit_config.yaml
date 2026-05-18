@@ -1,0 +1,82 @@
+# Configuration pour le scraper Reddit
+
+# Credentials API (à remplir)
+client_id: ""
+client_secret: ""
+user_agent: "Medical Data Collector v1.0"
+
+# Paramètres de scraping
+min_score: 1
+max_post_age_days: 30
+min_comment_score: 1
+
+# Subreddits médicaux à suivre
+medical_subreddits:
+  - AskDocs
+  - medical
+  - Health
+  - AskDoctorSmeeee
+  - Doctors
+  - medicine
+  - medicalschool
+  - AskPsychiatry
+  - DiagnoseMe
+
+# Paramètres de recherche
+search_limit: 100
+comment_limit: 50
+
+# Paramètres de stockage
+database:
+  path: "data/databases/reddit_posts.db"
+  
+# Paramètres de logging
+logging:
+  level: INFO
+  file: "data/logs/scraping/reddit.log"
+
+# Mots-clés médicaux par catégorie
+keywords:
+  second_opinion:
+    - "second opinion"
+    - "deuxième avis"
+    - "diagnosis confirmation"
+    - "confirm diagnosis"
+    - "another doctor"
+  
+  medical_advice:
+    - "doctor advice"
+    - "medical uncertainty"
+    - "doute diagnostic"
+    - "need advice"
+    - "should I see a doctor"
+  
+  consultation:
+    - "consultation médicale"
+    - "avis médical"
+    - "expertise médicale"
+    - "medical consultation"
+    - "specialist opinion"
+
+# Filtres de contenu
+content_filters:
+  min_length: 50  # caractères
+  max_length: 5000  # caractères
+  required_fields:
+    - title
+    - content
+    - author
+
+# Options de stockage
+storage:
+  database: "data/databases/reddit_posts.db"
+  backup_dir: "data/backups/"
+  backup_frequency: "daily"  # daily, weekly, monthly
+
+# Logging
+logging:
+  level: "INFO"
+  file: "data/logs/data/scraping/reddit.log"
+  format: "[%(asctime)s] [%(levelname)s] %(message)s"
+  rotation: "1 day"
+  retention: "30 days" 

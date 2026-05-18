@@ -1,0 +1,147 @@
+# Configuration pour le scraper MedicalBlogs
+
+# Liste des blogs médicaux à scraper
+blogs:
+  - name: "Kevin MD"
+    url: "https://www.kevinmd.com"
+    language: "en"
+    priority: 1
+  - name: "Science-Based Medicine"
+    url: "https://sciencebasedmedicine.org"
+    language: "en"
+    priority: 1
+  - name: "Medical News Today"
+    url: "https://www.medicalnewstoday.com/blog"
+    language: "en"
+    priority: 2
+  - name: "Le Blog de Doctissimo"
+    url: "https://blog.doctissimo.fr"
+    language: "fr"
+    priority: 1
+  - name: "Blog Médical du Dr Schweitzer"
+    url: "https://www.blog-medecine.fr"
+    language: "fr"
+    priority: 2
+
+# Catégories de contenu
+categories:
+  - "medical-research"
+  - "clinical-practice"
+  - "healthcare-policy"
+  - "medical-education"
+  - "patient-care"
+  - "public-health"
+  - "medical-technology"
+  - "medical-ethics"
+  - "medical-news"
+  - "case-studies"
+
+# Paramètres de scraping
+scraping:
+  max_concurrent_requests: 3
+  request_delay: 2.0  # Délai entre les requêtes en secondes
+  timeout: 30
+  retry_count: 3
+  retry_delay: 5.0
+  max_posts_per_blog: 1000
+  max_age_days: 365  # Ne collecter que les articles de la dernière année
+  update_frequency: "daily"
+  respect_robots_txt: true
+
+# Headers HTTP pour les requêtes
+headers:
+  User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+  Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
+  Accept-Language: "en-US,en;q=0.9,fr;q=0.8"
+
+# Configuration du stockage
+storage:
+  database_path: "data/databases/medicalblogs.db"
+  cache_path: "data/cache/medicalblogs"
+  backup_path: "data/backups/medicalblogs"
+  export_path: "data/exports/medicalblogs"
+  media_path: "data/media/medicalblogs"
+
+# Configuration du logging
+logging:
+  file_path: "data/logs/medicalblogs.log"
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  rotation: "1 week"
+  max_size: "100MB"
+
+# Paramètres d'extraction des données
+data_extraction:
+  extract_metadata: true
+  extract_images: true
+  extract_author_info: true
+  extract_comments: true
+  extract_tags: true
+  extract_categories: true
+  extract_references: true
+  save_html: false
+  translate_to_french: true
+
+# Paramètres de traduction
+translation:
+  enabled: true
+  source_languages:
+    - "en"
+  target_language: "fr"
+  service: "deepl"
+  batch_size: 50
+  preserve_formatting: true
+
+# Filtres de contenu
+content_filters:
+  min_article_length: 500
+  excluded_keywords:
+    - "advertisement"
+    - "sponsored"
+    - "promoted"
+    - "affiliate"
+  required_keywords:
+    - "medical"
+    - "health"
+    - "clinical"
+    - "medicine"
+    - "treatment"
+    - "research"
+    - "healthcare"
+  excluded_content_types:
+    - "advertisements"
+    - "sponsored-posts"
+    - "product-reviews"
+
+# Paramètres de qualité
+quality_filters:
+  require_author_credentials: true
+  require_publication_date: true
+  require_references: true
+  min_word_count: 300
+  exclude_duplicate_content: true
+  verify_medical_accuracy: true
+
+# Paramètres de notification
+notifications:
+  enabled: true
+  channels:
+    - "email"
+    - "slack"
+  triggers:
+    - "new_post"
+    - "important_update"
+    - "error_alert"
+
+# Paramètres de sauvegarde
+backup:
+  enabled: true
+  frequency: "daily"
+  keep_days: 30
+  compress: true
+
+# RSS Feeds
+rss:
+  enabled: true
+  check_frequency: 3600  # en secondes
+  feeds_auto_discovery: true  # Chercher automatiquement les flux RSS 

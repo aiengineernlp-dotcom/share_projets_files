@@ -1,0 +1,815 @@
+150 DOMAINES D'APPLICATION DU SYSTÈME
+=====================================
+
+1. SECTEUR ÉDUCATIF (10 domaines)
+--------------------------------
+1. Formation professionnelle
+   - Détection des besoins en formation
+   - Redirection vers des programmes adaptés
+   - Suivi des progrès
+
+2. Orientation scolaire
+   - Analyse des profils étudiants
+   - Recommandations de parcours
+   - Conseils d'orientation
+
+3. Soutien scolaire
+   - Identification des difficultés
+   - Mise en relation avec des tuteurs
+   - Ressources personnalisées
+
+4. Formation continue
+   - Veille des besoins en compétences
+   - Programmes de mise à niveau
+   - Certification professionnelle
+
+5. Langues étrangères
+   - Évaluation du niveau
+   - Recommandation de cours
+   - Pratique conversationnelle
+
+6. Formation en ligne
+   - Cours personnalisés
+   - Suivi de progression
+   - Support pédagogique
+
+7. Formation entreprise
+   - Analyse des besoins
+   - Plans de formation
+   - Évaluation des résultats
+
+8. Éducation spécialisée
+   - Besoins spécifiques
+   - Adaptation des méthodes
+   - Suivi personnalisé
+
+9. Formation technique
+   - Compétences métier
+   - Mise à jour technologique
+   - Certification technique
+
+10. Formation management
+    - Leadership
+    - Gestion d'équipe
+    - Développement personnel
+
+2. SECTEUR IMMOBILIER (10 domaines)
+---------------------------------
+11. Recherche immobilière
+    - Analyse des besoins
+    - Matching propriétés
+    - Visites virtuelles
+
+12. Investissement immobilier
+    - Opportunités d'investissement
+    - Analyse de rentabilité
+    - Conseils fiscaux
+
+13. Location
+    - Matching locataires/propriétaires
+    - Gestion des visites
+    - Suivi des dossiers
+
+14. Gestion locative
+    - Maintenance prédictive
+    - Suivi des paiements
+    - Relations locataires
+
+15. Promotion immobilière
+    - Études de marché
+    - Ciblage clients
+    - Commercialisation
+
+16. Expertise immobilière
+    - Évaluation bien
+    - Analyse marché
+    - Rapports détaillés
+
+17. Syndic de copropriété
+    - Gestion incidents
+    - Planification travaux
+    - Communication résidents
+
+18. Architecture d'intérieur
+    - Conseil décoration
+    - Plans d'aménagement
+    - Suivi projets
+
+19. Construction
+    - Suivi chantier
+    - Gestion prestataires
+    - Planning travaux
+
+20. Immobilier commercial
+    - Location bureaux
+    - Vente locaux
+    - Conseil entreprises
+
+3. SECTEUR FINANCIER (10 domaines)
+--------------------------------
+21. Banque retail
+    - Conseil produits
+    - Gestion comptes
+    - Services bancaires
+
+22. Assurance
+    - Analyse besoins
+    - Devis personnalisés
+    - Gestion sinistres
+
+23. Investissement
+    - Profil investisseur
+    - Conseils placement
+    - Suivi portefeuille
+
+24. Crédit
+    - Analyse dossier
+    - Simulation prêt
+    - Suivi remboursement
+
+25. Gestion patrimoine
+    - Bilan patrimonial
+    - Stratégie fiscale
+    - Transmission
+
+26. Trading
+    - Analyse marchés
+    - Signaux trading
+    - Gestion risques
+
+27. Crowdfunding
+    - Présentation projets
+    - Collecte fonds
+    - Suivi investissements
+
+28. Cryptomonnaies
+    - Conseil investissement
+    - Sécurité transactions
+    - Analyse tendances
+
+29. Financement entreprise
+    - Recherche financements
+    - Montage dossiers
+    - Relations banques
+
+30. Recouvrement
+    - Suivi impayés
+    - Négociation
+    - Procédures juridiques
+
+4. SECTEUR TOURISME (10 domaines)
+-------------------------------
+31. Agence voyage
+    - Conseil destinations
+    - Organisation séjours
+    - Support voyage
+
+32. Hôtellerie
+    - Réservations
+    - Services clients
+    - Fidélisation
+
+33. Restauration
+    - Réservations tables
+    - Menus personnalisés
+    - Avis clients
+
+34. Transport
+    - Réservation billets
+    - Itinéraires
+    - Information trafic
+
+35. Tourisme d'affaires
+    - Organisation événements
+    - Logistique
+    - Services VIP
+
+36. Guide touristique
+    - Parcours personnalisés
+    - Points d'intérêt
+    - Informations culturelles
+
+37. Location véhicules
+    - Réservation
+    - Gestion flotte
+    - Assistance
+
+38. Activités loisirs
+    - Recherche activités
+    - Réservation
+    - Avis utilisateurs
+
+39. Conciergerie
+    - Services personnalisés
+    - Assistance 24/7
+    - Demandes spéciales
+
+40. Tourisme médical
+    - Recherche cliniques
+    - Organisation séjour
+    - Suivi patient
+
+5. SECTEUR RH (10 domaines)
+-------------------------
+41. Recrutement
+    - Analyse CV
+    - Matching postes
+    - Entretiens
+
+42. Formation
+    - Besoins formation
+    - Plans personnalisés
+    - Suivi compétences
+
+43. Gestion carrière
+    - Évolution professionnelle
+    - Mobilité interne
+    - Développement compétences
+
+44. Paie
+    - Calcul salaires
+    - Déclarations sociales
+    - Gestion absences
+
+45. Administration personnel
+    - Gestion contrats
+    - Dossiers employés
+    - Documents administratifs
+
+46. Relations sociales
+    - Dialogue social
+    - Négociations
+    - Climat social
+
+47. GPEC
+    - Cartographie compétences
+    - Anticipation besoins
+    - Plans action
+
+48. Marque employeur
+    - Communication RH
+    - Attractivité
+    - Fidélisation
+
+49. Qualité de vie au travail
+    - Bien-être
+    - Prévention risques
+    - Amélioration conditions
+
+50. Intérim
+    - Recherche candidats
+    - Placement
+    - Suivi missions
+
+6. SECTEUR JURIDIQUE (10 domaines)
+--------------------------------
+51. Conseil juridique
+    - Analyse situation
+    - Recommandations
+    - Suivi dossier
+
+52. Contentieux
+    - Gestion litiges
+    - Procédures
+    - Négociations
+
+53. Propriété intellectuelle
+    - Protection marques
+    - Brevets
+    - Droits auteur
+
+54. Droit des sociétés
+    - Création entreprise
+    - Modifications statutaires
+    - Secrétariat juridique
+
+55. Droit fiscal
+    - Optimisation fiscale
+    - Déclarations
+    - Contrôles
+
+56. Droit social
+    - Contrats travail
+    - Règlement intérieur
+    - Licenciements
+
+57. Droit immobilier
+    - Transactions
+    - Baux
+    - Copropriété
+
+58. Recouvrement
+    - Impayés
+    - Procédures
+    - Négociations
+
+59. Droit famille
+    - Succession
+    - Divorce
+    - Protection
+
+60. Droit pénal
+    - Défense
+    - Procédures
+    - Suivi dossier
+
+7. SECTEUR E-COMMERCE (10 domaines)
+---------------------------------
+61. Vente en ligne
+    - Catalogue produits
+    - Commandes
+    - SAV
+
+62. Marketplace
+    - Mise en relation
+    - Transactions
+    - Évaluation
+
+63. Dropshipping
+    - Sourcing produits
+    - Gestion commandes
+    - Livraison
+
+64. Mode
+    - Conseil style
+    - Personal shopping
+    - Tendances
+
+65. High-tech
+    - Conseil technique
+    - Comparatif produits
+    - Support
+
+66. Alimentation
+    - Courses en ligne
+    - Régimes spéciaux
+    - Livraison
+
+67. Luxe
+    - Produits exclusifs
+    - Service personnalisé
+    - Conciergerie
+
+68. Sport
+    - Équipement
+    - Conseil technique
+    - Programmes
+
+69. Maison
+    - Décoration
+    - Ameublement
+    - Bricolage
+
+70. Beauté
+    - Conseil cosmétique
+    - Soins personnalisés
+    - Tendances
+
+8. SECTEUR INDUSTRIEL (10 domaines)
+---------------------------------
+71. Production
+    - Optimisation process
+    - Qualité
+    - Maintenance
+
+72. Logistique
+    - Supply chain
+    - Stock
+    - Transport
+
+73. Maintenance
+    - Prédictive
+    - Préventive
+    - Corrective
+
+74. Qualité
+    - Contrôle
+    - Certification
+    - Amélioration
+
+75. R&D
+    - Innovation
+    - Développement
+    - Tests
+
+76. Sécurité
+    - Prévention
+    - Formation
+    - Contrôle
+
+77. Environnement
+    - Normes
+    - Impact
+    - Solutions
+
+78. Énergie
+    - Optimisation
+    - Alternatives
+    - Économies
+
+79. Automatisation
+    - Robotique
+    - IA
+    - Process
+
+80. Supply Chain
+    - Approvisionnement
+    - Distribution
+    - Stock
+
+9. SECTEUR SERVICES (10 domaines)
+-------------------------------
+81. Conseil
+    - Diagnostic
+    - Recommandations
+    - Suivi
+
+82. Formation
+    - Besoins
+    - Programme
+    - Évaluation
+
+83. Marketing
+    - Stratégie
+    - Campagnes
+    - Analytics
+
+84. Communication
+    - Messages
+    - Canaux
+    - Impact
+
+85. Digital
+    - Transformation
+    - Solutions
+    - Support
+
+86. Innovation
+    - Veille
+    - Projets
+    - Tests
+
+87. Qualité
+    - Processus
+    - Certification
+    - Amélioration
+
+88. Support
+    - Assistance
+    - Résolution
+    - Suivi
+
+89. Événementiel
+    - Organisation
+    - Logistique
+    - Animation
+
+90. Relations publiques
+    - Communication
+    - Influence
+    - Réseau
+
+10. SECTEUR SANTÉ (hors médical) (10 domaines)
+-------------------------------------------
+91. Bien-être
+    - Coaching
+    - Programmes
+    - Suivi
+
+92. Sport
+    - Entraînement
+    - Nutrition
+    - Performance
+
+93. Nutrition
+    - Régimes
+    - Conseils
+    - Suivi
+
+94. Psychologie
+    - Soutien
+    - Thérapie
+    - Développement
+
+95. Sommeil
+    - Analyse
+    - Conseils
+    - Amélioration
+
+96. Stress
+    - Gestion
+    - Relaxation
+    - Prévention
+
+97. Addiction
+    - Prévention
+    - Accompagnement
+    - Suivi
+
+98. Méditation
+    - Programmes
+    - Guidance
+    - Progression
+
+99. Ergonomie
+    - Analyse
+    - Conseils
+    - Adaptation
+
+100. Rééducation
+     - Exercices
+     - Suivi
+     - Progrès
+
+11. SECTEUR ENVIRONNEMENT (10 domaines)
+------------------------------------
+101. Écologie
+     - Conseil
+     - Solutions
+     - Impact
+
+102. Énergie verte
+     - Solutions
+     - Installation
+     - Suivi
+
+103. Recyclage
+     - Tri
+     - Valorisation
+     - Circuit
+
+104. Biodiversité
+     - Protection
+     - Restauration
+     - Suivi
+
+105. Eau
+     - Gestion
+     - Traitement
+     - Économie
+
+106. Agriculture bio
+     - Conversion
+     - Certification
+     - Production
+
+107. Déchets
+     - Réduction
+     - Traitement
+     - Valorisation
+
+108. Transport vert
+     - Solutions
+     - Optimisation
+     - Impact
+
+109. Construction durable
+     - Matériaux
+     - Normes
+     - Performance
+
+110. Compensation carbone
+     - Calcul
+     - Solutions
+     - Suivi
+
+12. SECTEUR TECHNOLOGIE (10 domaines)
+----------------------------------
+111. IA
+     - Solutions
+     - Développement
+     - Integration
+
+112. Blockchain
+     - Applications
+     - Sécurité
+     - Smart contracts
+
+113. IoT
+     - Capteurs
+     - Données
+     - Applications
+
+114. Cloud
+     - Solutions
+     - Migration
+     - Sécurité
+
+115. Cybersécurité
+     - Protection
+     - Audit
+     - Formation
+
+116. Big Data
+     - Analyse
+     - Stockage
+     - Valorisation
+
+117. DevOps
+     - Automatisation
+     - Déploiement
+     - Monitoring
+
+118. Mobile
+     - Applications
+     - Services
+     - Support
+
+119. AR/VR
+     - Solutions
+     - Développement
+     - Usage
+
+120. 5G
+     - Applications
+     - Déploiement
+     - Services
+
+13. SECTEUR MÉDIA (10 domaines)
+----------------------------
+121. Presse
+     - Content
+     - Distribution
+     - Monétisation
+
+122. Audiovisuel
+     - Production
+     - Diffusion
+     - Droits
+
+123. Social Media
+     - Stratégie
+     - Content
+     - Engagement
+
+124. Gaming
+     - Développement
+     - Communauté
+     - Monétisation
+
+125. Streaming
+     - Contenu
+     - Plateforme
+     - Audience
+
+126. Podcast
+     - Production
+     - Distribution
+     - Monétisation
+
+127. Influenceurs
+     - Marketing
+     - Collaboration
+     - ROI
+
+128. Publicité
+     - Campagnes
+     - Ciblage
+     - Analytics
+
+129. RP digitales
+     - Stratégie
+     - Communication
+     - Impact
+
+130. Content Marketing
+     - Stratégie
+     - Production
+     - Distribution
+
+14. SECTEUR TRANSPORT (10 domaines)
+--------------------------------
+131. Logistique urbaine
+     - Optimisation
+     - Livraison
+     - Tracking
+
+132. Transport public
+     - Planning
+     - Information
+     - Service
+
+133. Covoiturage
+     - Matching
+     - Réservation
+     - Paiement
+
+134. Véhicules électriques
+     - Charging
+     - Autonomie
+     - Service
+
+135. Transport marchandises
+     - Planning
+     - Tracking
+     - Optimisation
+
+136. Aviation
+     - Réservation
+     - Services
+     - Information
+
+137. Maritime
+     - Fret
+     - Tracking
+     - Services
+
+138. Ferroviaire
+     - Planning
+     - Information
+     - Service
+
+139. Mobilité douce
+     - Solutions
+     - Services
+     - Promotion
+
+140. Transport spécialisé
+     - Medical
+     - Scolaire
+     - PMR
+
+15. SECTEUR SOCIAL (10 domaines)
+-----------------------------
+141. Aide sociale
+     - Besoins
+     - Solutions
+     - Suivi
+
+142. Insertion
+     - Accompagnement
+     - Formation
+     - Emploi
+
+143. Handicap
+     - Assistance
+     - Adaptation
+     - Support
+
+144. Seniors
+     - Services
+     - Assistance
+     - Lien social
+
+145. Enfance
+     - Protection
+     - Éducation
+     - Loisirs
+
+146. Précarité
+     - Aide
+     - Hébergement
+     - Insertion
+
+147. Migrants
+     - Accueil
+     - Integration
+     - Support
+
+148. Santé mentale
+     - Soutien
+     - Thérapie
+     - Suivi
+
+149. Addictions
+     - Prévention
+     - Traitement
+     - Réinsertion
+
+150. Solidarité
+     - Mise en relation
+     - Actions
+     - Support
+
+COMMENT UTILISER LE SYSTÈME DANS CES DOMAINES
+===========================================
+
+1. ADAPTATION DU SYSTÈME
+----------------------
+- Personnalisation des réponses selon le domaine
+- Base de données spécifique par secteur
+- Intégration des terminologies métier
+- Respect des réglementations sectorielles
+
+2. FONCTIONNALITÉS CLÉS
+---------------------
+- Détection des besoins
+- Analyse des conversations
+- Redirection intelligente
+- Suivi personnalisé
+- Reporting et analytics
+
+3. MISE EN ŒUVRE
+--------------
+- Analyse du secteur
+- Configuration spécifique
+- Formation du modèle
+- Tests et validation
+- Déploiement progressif
+
+4. MESURE DE PERFORMANCE
+---------------------
+- KPIs spécifiques
+- Taux de conversion
+- Satisfaction client
+- ROI par secteur 

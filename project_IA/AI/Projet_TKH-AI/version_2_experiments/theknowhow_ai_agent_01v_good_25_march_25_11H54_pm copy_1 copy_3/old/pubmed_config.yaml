@@ -1,0 +1,91 @@
+# Configuration pour le scraper PubMed
+
+# URL de base du site
+base_url: "https://pubmed.ncbi.nlm.nih.gov"
+
+# API E-utilities de NCBI
+api_base_url: "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
+api_key: ""  # À remplir avec votre clé API NCBI
+
+# Paramètres de recherche
+search:
+  max_results_per_query: 1000
+  batch_size: 100  # Nombre d'articles à récupérer par requête
+  date_range:
+    start: "2020"  # Année de début
+    end: ""        # Vide pour l'année en cours
+  fields:
+    - "title"
+    - "abstract"
+    - "authors"
+    - "journal"
+    - "publication_date"
+    - "doi"
+    - "pmid"
+    - "mesh_terms"
+
+# Filtres de recherche
+filters:
+  languages:
+    - "english"
+    - "french"
+  article_types:
+    - "journal article"
+    - "clinical trial"
+    - "review"
+    - "systematic review"
+    - "meta-analysis"
+  journals_priority:
+    - "The Lancet"
+    - "Nature Medicine"
+    - "The New England Journal of Medicine"
+    - "JAMA"
+    - "BMJ"
+
+# Paramètres de scraping
+scraping:
+  max_concurrent_requests: 3
+  request_delay: 1.0  # Délai entre les requêtes en secondes
+  timeout: 30
+  retry_count: 3
+  retry_delay: 5.0
+
+# Headers HTTP pour les requêtes
+headers:
+  User-Agent: "Mozilla/5.0 (compatible; MedicalResearchBot/1.0; +https://www.example.com/bot)"
+  Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+  Accept-Language: "en-US,en;q=0.5"
+
+# Configuration du stockage
+storage:
+  database_path: "data/databases/pubmed.db"
+  cache_path: "data/cache/pubmed"
+  backup_path: "data/backups/pubmed"
+  export_path: "data/exports/pubmed"
+
+# Configuration du logging
+logging:
+  file_path: "data/logs/pubmed.log"
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  rotation: "1 week"
+  max_size: "100MB"
+
+# Filtres de contenu
+content_filters:
+  min_abstract_length: 100
+  required_fields:
+    - "title"
+    - "abstract"
+    - "authors"
+  excluded_keywords:
+    - "retracted"
+    - "withdrawn"
+  required_keywords:
+    - "medicine"
+    - "health"
+    - "clinical"
+    - "medical"
+    - "treatment"
+    - "therapy"
+    - "disease" 

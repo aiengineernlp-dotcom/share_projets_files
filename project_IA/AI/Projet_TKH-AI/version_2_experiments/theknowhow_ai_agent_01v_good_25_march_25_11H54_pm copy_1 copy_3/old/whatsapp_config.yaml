@@ -1,0 +1,39 @@
+# Configuration pour le scraper WhatsApp
+
+# Paramètres de scraping
+max_message_age_days: 30
+min_message_length: 10
+collect_media: false
+collect_documents: false
+
+# Groupes médicaux à suivre (à remplir avec les noms exacts des groupes)
+medical_groups:
+  - "Médecins Entraide"
+  - "Santé & Bien-être"
+  - "Medical Support Group"
+  - "Healthcare Professionals"
+  - "Medical Advice Network"
+
+# Paramètres de stockage
+storage:
+  database_path: "data/databases/whatsapp_messages.db"
+  backup_path: "data/backups/whatsapp"
+
+# Paramètres de logging
+logging:
+  level: "INFO"
+  file_path: "data/logs/scraping/whatsapp.log"
+  max_size: 10485760  # 10 MB
+  backup_count: 5
+
+# Paramètres de connexion
+connection:
+  timeout: 30  # secondes
+  retry_attempts: 3
+  retry_delay: 5  # secondes
+
+# Paramètres de performance
+performance:
+  scroll_pause_time: 1.0  # secondes
+  batch_size: 50
+  max_concurrent_requests: 3 

@@ -1,0 +1,103 @@
+# Configuration pour le scraper WebTeb
+
+# URL de base du site
+base_url: "https://www.webteb.com"
+
+# Langues supportées
+languages:
+  - "ar"  # Arabe
+  - "en"  # Anglais
+
+# Catégories à scraper
+categories:
+  - "diseases"
+  - "symptoms"
+  - "medications"
+  - "medical-tests"
+  - "first-aid"
+  - "nutrition"
+  - "pregnancy"
+  - "mental-health"
+  - "alternative-medicine"
+
+# Paramètres de scraping
+scraping:
+  max_concurrent_requests: 3
+  request_delay: 1.5  # Délai entre les requêtes en secondes
+  timeout: 30
+  retry_count: 3
+  retry_delay: 5.0
+  max_pages_per_category: 100
+  max_articles_per_category: 1000
+
+# Headers HTTP pour les requêtes
+headers:
+  User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+  Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
+  Accept-Language: "ar,en-US;q=0.9,en;q=0.8"
+
+# Configuration du stockage
+storage:
+  database_path: "data/databases/webteb.db"
+  cache_path: "data/cache/webteb"
+  backup_path: "data/backups/webteb"
+  export_path: "data/exports/webteb"
+  media_path: "data/media/webteb"
+
+# Configuration du logging
+logging:
+  file_path: "data/logs/webteb.log"
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  rotation: "1 week"
+  max_size: "100MB"
+
+# Filtres de contenu
+content_filters:
+  min_article_length: 500
+  excluded_keywords:
+    - "advertisement"
+    - "sponsored"
+    - "promoted"
+  required_keywords:
+    - "صحة"  # santé en arabe
+    - "طب"    # médecine en arabe
+    - "علاج"  # traitement en arabe
+    - "health"
+    - "medical"
+    - "treatment"
+
+# Paramètres d'extraction des données
+data_extraction:
+  extract_metadata: true
+  extract_images: true
+  extract_references: true
+  extract_related_articles: true
+  extract_author_info: true
+  save_html: false
+  translate_to_french: true  # Utiliser un service de traduction pour le contenu
+
+# Paramètres de traduction
+translation:
+  enabled: true
+  source_languages:
+    - "ar"
+    - "en"
+  target_language: "fr"
+  service: "google"  # ou "azure", "deepl", etc.
+  batch_size: 50  # Nombre de textes à traduire par lot
+
+# Paramètres de qualité
+quality_filters:
+  min_article_rating: 0
+  verified_authors_only: true
+  exclude_user_content: false
+  min_publication_date: "2020-01-01"
+  require_medical_references: true
+
+# Paramètres de sauvegarde
+backup:
+  enabled: true
+  frequency: "daily"
+  keep_days: 30
+  compress: true 

@@ -1,0 +1,243 @@
+# Configuration pour le scraper Doctoruna
+
+# URL de base du site
+base_url: "https://www.doctoruna.com"
+
+# Langues supportées
+languages:
+  - code: "ar"
+    name: "Arabic"
+    priority: 1
+  - code: "en"
+    name: "English"
+    priority: 2
+
+# Pays couverts
+countries:
+  - name: "United Arab Emirates"
+    code: "UAE"
+    priority: 1
+  - name: "Saudi Arabia"
+    code: "KSA"
+    priority: 2
+  - name: "Kuwait"
+    code: "KWT"
+    priority: 2
+  - name: "Bahrain"
+    code: "BHR"
+    priority: 2
+
+# Spécialités médicales
+specialties:
+  - "General Practice"
+  - "Cardiology"
+  - "Dermatology"
+  - "Pediatrics"
+  - "Orthopedics"
+  - "Gynecology"
+  - "Dentistry"
+  - "Ophthalmology"
+  - "ENT"
+  - "Neurology"
+  - "Psychiatry"
+  - "Urology"
+  - "Endocrinology"
+  - "Gastroenterology"
+  - "Oncology"
+
+# Paramètres de scraping
+scraping:
+  max_concurrent_requests: 3
+  request_delay: 2.0  # Délai entre les requêtes en secondes
+  timeout: 30
+  retry_count: 3
+  retry_delay: 5.0
+  max_doctors_per_specialty: 1000
+  max_clinics_per_city: 500
+  update_frequency: "daily"
+  respect_robots_txt: true
+
+# Headers HTTP pour les requêtes
+headers:
+  User-Agent: "Mozilla/5.0 (compatible; HealthcareDirectoryBot/1.0; +https://www.example.com/bot)"
+  Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+  Accept-Language: "ar,en-US;q=0.7,en;q=0.3"
+
+# Configuration du stockage
+storage:
+  database_path: "data/databases/doctoruna.db"
+  cache_path: "data/cache/doctoruna"
+  backup_path: "data/backups/doctoruna"
+  export_path: "data/exports/doctoruna"
+  media_path: "data/media/doctoruna"
+  profile_images_path: "data/media/doctoruna/profiles"
+
+# Configuration du logging
+logging:
+  file_path: "data/logs/doctoruna.log"
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  rotation: "1 week"
+  max_size: "100MB"
+
+# Paramètres d'extraction des données
+data_extraction:
+  extract_doctor_info: true
+  extract_clinic_info: true
+  extract_reviews: true
+  extract_availability: true
+  extract_services: true
+  extract_insurance_info: true
+  save_profile_images: true
+  translate_to_french: true
+  extract_qualifications: true
+  extract_experience: true
+  extract_languages_spoken: true
+
+# Paramètres de traduction
+translation:
+  enabled: true
+  source_languages: ["ar", "en"]
+  target_language: "fr"
+  service: "deepl"
+  batch_size: 50
+  preserve_formatting: true
+  translate_fields:
+    - "name"
+    - "speciality"
+    - "bio"
+    - "education"
+    - "services"
+    - "clinic_name"
+    - "clinic_description"
+    - "reviews"
+
+# Filtres de contenu
+content_filters:
+  min_profile_completeness: 0.7
+  required_fields:
+    - "name"
+    - "speciality"
+    - "location"
+    - "contact"
+  excluded_keywords:
+    - "inactive"
+    - "suspended"
+  required_keywords:
+    - "doctor"
+    - "clinic"
+    - "medical"
+    - "healthcare"
+
+# Paramètres de qualité
+quality_filters:
+  require_license_info: true
+  require_qualification: true
+  require_experience: true
+  require_clinic_info: true
+  min_review_count: 0
+  validate_contact_info: true
+  check_image_quality: true
+
+# Paramètres de notification
+notifications:
+  enabled: true
+  channels:
+    - "email"
+    - "slack"
+  triggers:
+    - "new_doctor"
+    - "profile_update"
+    - "review_alert"
+    - "availability_change"
+    - "error_alert"
+  priority_levels:
+    - "high"
+    - "medium"
+    - "low"
+
+# Paramètres de sauvegarde
+backup:
+  enabled: true
+  frequency: "daily"
+  keep_days: 90
+  compress: true
+  include_media: true
+
+# API Configuration
+api:
+  enabled: false
+  base_url: ""
+  version: ""
+  key: ""
+  rate_limit: 0
+
+# Géolocalisation
+geolocation:
+  enabled: true
+  countries:
+    - name: "UAE"
+      cities:
+        - "Dubai"
+        - "Abu Dhabi"
+        - "Sharjah"
+        - "Ajman"
+    - name: "KSA"
+      cities:
+        - "Riyadh"
+        - "Jeddah"
+        - "Dammam"
+    - name: "Kuwait"
+      cities:
+        - "Kuwait City"
+    - name: "Bahrain"
+      cities:
+        - "Manama"
+
+# Informations sur les cliniques
+clinics:
+  required_info:
+    - "name"
+    - "location"
+    - "contact"
+    - "working_hours"
+    - "services"
+    - "doctors"
+    - "insurance_providers"
+  facilities:
+    - "Parking"
+    - "Wheelchair Access"
+    - "Laboratory"
+    - "Pharmacy"
+    - "Emergency"
+
+# Système de réservation
+booking:
+  enabled: true
+  time_slot_interval: 15  # minutes
+  advance_booking_limit: 30  # jours
+  cancellation_period: 24  # heures
+  reminder_enabled: true
+  reminder_time: 24  # heures avant le rendez-vous
+
+# Système d'évaluation
+reviews:
+  enabled: true
+  min_rating: 1
+  max_rating: 5
+  required_fields:
+    - "rating"
+    - "comment"
+    - "date"
+  moderation: true
+  spam_detection: true
+
+# Paramètres de mise à jour
+updates:
+  check_frequency: "daily"
+  fields_to_monitor:
+    - "availability"
+    - "contact_info"
+    - "services"
+    - "insurance_providers"
+    - "working_hours" 

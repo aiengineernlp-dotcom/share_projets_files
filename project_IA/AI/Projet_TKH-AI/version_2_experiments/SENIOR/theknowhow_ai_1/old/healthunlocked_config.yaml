@@ -1,0 +1,240 @@
+# Configuration pour le scraper HealthUnlocked
+
+# URL de base du site
+base_url: "https://healthunlocked.com"
+
+# Paramètres de la communauté
+communities:
+  - name: "Cancer Support"
+    url_path: "/cancer-support"
+    priority: 1
+  - name: "Heart Disease"
+    url_path: "/heart-disease"
+    priority: 1
+  - name: "Mental Health"
+    url_path: "/mental-health"
+    priority: 1
+  - name: "Diabetes"
+    url_path: "/diabetes"
+    priority: 1
+  - name: "Arthritis"
+    url_path: "/arthritis"
+    priority: 2
+  - name: "Multiple Sclerosis"
+    url_path: "/multiple-sclerosis"
+    priority: 2
+  - name: "Chronic Pain"
+    url_path: "/chronic-pain"
+    priority: 2
+  - name: "Anxiety"
+    url_path: "/anxiety"
+    priority: 2
+  - name: "Depression"
+    url_path: "/depression"
+    priority: 2
+  - name: "Weight Management"
+    url_path: "/weight-management"
+    priority: 3
+
+# Types de contenu
+content_types:
+  - "posts"
+  - "questions"
+  - "experiences"
+  - "tips"
+  - "discussions"
+  - "support-requests"
+  - "success-stories"
+
+# Paramètres de scraping
+scraping:
+  max_concurrent_requests: 3
+  request_delay: 1.5  # Délai entre les requêtes en secondes
+  timeout: 30
+  retry_count: 3
+  retry_delay: 5.0
+  max_posts_per_community: 1000
+  max_comments_per_post: 200
+  update_frequency: "hourly"
+  respect_robots_txt: true
+
+# Headers HTTP pour les requêtes
+headers:
+  User-Agent: "Mozilla/5.0 (compatible; HealthCommunityBot/1.0; +https://www.example.com/bot)"
+  Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+  Accept-Language: "en-US,en;q=0.5"
+
+# Configuration du stockage
+storage:
+  database_path: "data/databases/healthunlocked.db"
+  cache_path: "data/cache/healthunlocked"
+  backup_path: "data/backups/healthunlocked"
+  export_path: "data/exports/healthunlocked"
+  media_path: "data/media/healthunlocked"
+
+# Configuration du logging
+logging:
+  file_path: "data/logs/healthunlocked.log"
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  rotation: "1 week"
+  max_size: "100MB"
+
+# Paramètres d'extraction des données
+data_extraction:
+  extract_post_content: true
+  extract_comments: true
+  extract_user_info: true
+  extract_timestamps: true
+  extract_reactions: true
+  extract_tags: true
+  extract_images: true
+  extract_links: true
+  translate_to_french: true
+  anonymize_data: true
+
+# Paramètres de traduction
+translation:
+  enabled: true
+  source_language: "en"
+  target_language: "fr"
+  service: "deepl"
+  batch_size: 50
+  preserve_formatting: true
+  translate_fields:
+    - "title"
+    - "content"
+    - "comments"
+    - "tags"
+    - "user_bio"
+
+# Filtres de contenu
+content_filters:
+  min_content_length: 50
+  required_fields:
+    - "title"
+    - "content"
+    - "author"
+    - "timestamp"
+  excluded_keywords:
+    - "spam"
+    - "advertisement"
+    - "deleted"
+    - "removed"
+  required_keywords:
+    - "health"
+    - "medical"
+    - "support"
+    - "experience"
+    - "advice"
+
+# Paramètres de qualité
+quality_filters:
+  min_engagement: 1  # Au moins une réaction ou commentaire
+  require_complete_profile: false
+  check_spam_score: true
+  validate_links: true
+  min_account_age: 1  # jour
+  max_daily_posts: 50  # par utilisateur
+
+# Paramètres de notification
+notifications:
+  enabled: true
+  channels:
+    - "email"
+    - "slack"
+  triggers:
+    - "new_trending_post"
+    - "community_alert"
+    - "moderation_needed"
+    - "error_alert"
+  priority_levels:
+    - "high"
+    - "medium"
+    - "low"
+
+# Paramètres de sauvegarde
+backup:
+  enabled: true
+  frequency: "daily"
+  keep_days: 30
+  compress: true
+  include_media: true
+
+# API Configuration
+api:
+  enabled: false
+  base_url: ""
+  version: ""
+  key: ""
+  rate_limit: 0
+
+# Paramètres de modération
+moderation:
+  enabled: true
+  auto_flag_keywords:
+    - "suicide"
+    - "self-harm"
+    - "abuse"
+    - "illegal"
+    - "harassment"
+  report_threshold: 3
+  spam_detection: true
+  content_classification: true
+
+# Analyse des sentiments
+sentiment_analysis:
+  enabled: true
+  analyze_posts: true
+  analyze_comments: true
+  min_confidence: 0.7
+  categories:
+    - "positive"
+    - "negative"
+    - "neutral"
+    - "urgent_support_needed"
+
+# Paramètres d'engagement
+engagement:
+  track_metrics: true
+  metrics:
+    - "views"
+    - "likes"
+    - "comments"
+    - "shares"
+    - "follows"
+  trending_threshold: 10  # interactions par heure
+
+# Paramètres de confidentialité
+privacy:
+  anonymize_usernames: true
+  mask_personal_info: true
+  exclude_private_posts: true
+  exclude_direct_messages: true
+  data_retention_period: 90  # jours
+
+# RSS Feeds
+rss:
+  enabled: true
+  check_frequency: 900  # en secondes
+  feeds:
+    - name: "Latest Discussions"
+      url: "https://healthunlocked.com/feed/latest"
+    - name: "Featured Posts"
+      url: "https://healthunlocked.com/feed/featured"
+
+# Paramètres de recherche
+search:
+  enabled: true
+  index_content: true
+  index_comments: true
+  max_results: 1000
+  sort_options:
+    - "relevance"
+    - "date"
+    - "popularity"
+  filters:
+    - "community"
+    - "content_type"
+    - "date_range"
+    - "has_responses" 

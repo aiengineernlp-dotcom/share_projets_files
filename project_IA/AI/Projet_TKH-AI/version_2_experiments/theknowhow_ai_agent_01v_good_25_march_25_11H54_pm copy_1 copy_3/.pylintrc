@@ -1,0 +1,212 @@
+# ==============================================
+# FICHIER DE CONFIGURATION PYLINT
+# ==============================================
+#
+# RÔLE PRINCIPAL :
+# --------------
+# Ce fichier .pylintrc configure les règles de vérification du code Python
+# avec Pylint. Il définit :
+# - Les règles de style
+# - Les conventions de code
+# - Les messages d'erreur
+# - Les exclusions
+#
+# RELATIONS AVEC LES AUTRES FICHIERS :
+# ---------------------------------
+# - pyproject.toml : Configuration générale du projet
+# - .pre-commit-config.yaml : Hooks de pré-commit
+# - pytest.ini : Configuration des tests
+# - setup.py : Configuration de l'installation
+#
+# STRUCTURE DU CONTENU :
+# --------------------
+# Le fichier est organisé en sections :
+# 1. Configuration générale
+# 2. Messages et rapports
+# 3. Forme du code
+# 4. Variables et constantes
+# 5. Imports
+# 6. Classes et interfaces
+# 7. Fonctions et méthodes
+# 8. Exceptions
+# 9. Documentation
+# 10. Types et interfaces
+#
+# IMPORTANCE ET SUPPRESSION :
+# -------------------------
+# Ce fichier est CRITIQUE et ne doit PAS être supprimé car :
+# - Il assure la qualité du code
+# - Il standardise le style
+# - Il prévient les erreurs
+# - Il facilite la maintenance
+#
+# NOTE DE MAINTENANCE :
+# -------------------
+# - Maintenir à jour les règles
+# - Vérifier la cohérence avec le code
+# - Optimiser les performances
+# - Documenter les changements
+#
+# ==============================================
+
+[MASTER]
+# Python version
+py-version = 3.9
+
+# Découverte des modules Python
+ignore=CVS
+ignore-patterns=
+persistent=yes
+load-plugins=
+
+# Utiliser plusieurs processus pour accélérer Pylint
+jobs=4
+
+# Permettre le chargement de modules C
+unsafe-load-any-extension=no
+
+# Cache les résultats entre les exécutions
+persistent=yes
+
+[MESSAGES CONTROL]
+# Désactiver les messages et catégories de messages
+disable=C0111,  # missing-docstring
+        C0103,  # invalid-name
+        C0302,  # too-many-lines
+        R0903,  # too-few-public-methods
+        R0913,  # too-many-arguments
+        R0914,  # too-many-locals
+        W0511,  # fixme
+        W0703,  # broad-except
+        W1203,  # logging-fstring-interpolation
+        W0621,  # redefined-outer-name
+        W0212,  # protected-access
+        W0603,  # global-statement
+        R0801,  # duplicate-code
+        R0902,  # too-many-instance-attributes
+        R0904,  # too-many-public-methods
+        R0912,  # too-many-branches
+        R0915   # too-many-statements
+
+[REPORTS]
+# Format du rapport (text, parseable, colorized, html)
+output-format=colorized
+
+# Inclure un bref résumé des scores
+reports=no
+
+# Afficher un message pour chaque erreur
+msg-template={path}:{line}: [{msg_id}({symbol}), {obj}] {msg}
+
+[BASIC]
+# Bon noms de variables
+good-names=i,j,k,ex,Run,_,fd,fp,id,ip
+
+# Mauvais noms de variables
+bad-names=foo,bar,baz,toto,tutu,tata
+
+# Nommage des fonctions
+function-rgx=[a-z_][a-z0-9_]{2,50}$
+
+# Nommage des variables
+variable-rgx=[a-z_][a-z0-9_]{2,50}$
+
+# Nommage des constantes
+const-rgx=(([A-Z_][A-Z0-9_]*)|(__.*__))$
+
+# Nommage des classes
+class-rgx=[A-Z_][a-zA-Z0-9]+$
+
+# Nommage des méthodes
+method-rgx=[a-z_][a-z0-9_]{2,50}$
+
+# Nommage des attributs
+attr-rgx=[a-z_][a-z0-9_]{2,50}$
+
+# Nommage des arguments
+argument-rgx=[a-z_][a-z0-9_]{2,50}$
+
+# Nommage des variables de classe
+class-attribute-rgx=([A-Za-z_][A-Za-z0-9_]{2,50}|(__.*__))$
+
+# Nommage des variables d'instance
+class-variable-rgx=[a-z_][a-z0-9_]{2,50}$
+
+[FORMAT]
+# Nombre maximum de caractères sur une ligne
+max-line-length=100
+
+# Ignorer les lignes qui correspondent à cette expression régulière
+ignore-long-lines=^\s*(# )?<?https?://\S+>?$
+
+# Permettre le style de bloc de code
+single-line-if-stmt=no
+
+# Nombre de lignes maximum dans un module
+max-module-lines=2000
+
+# Indentation
+indent-after-paren=4
+
+[LOGGING]
+# Format du message de logging
+logging-format-style=new
+
+# Modules de logging
+logging-modules=logging
+
+[MISCELLANEOUS]
+# Liste des notes à rechercher
+notes=FIXME,XXX,TODO
+
+[SIMILARITIES]
+# Nombre minimum de lignes similaires pour un doublon
+min-similarity-lines=4
+
+# Ignorer les imports dans la détection des doublons
+ignore-imports=yes
+
+# Ignorer les docstrings dans la détection des doublons
+ignore-docstrings=yes
+
+# Ignorer les commentaires dans la détection des doublons
+ignore-comments=yes
+
+[TYPECHECK]
+# Liste des modules à ignorer lors de la vérification des types
+ignored-modules=numpy,tensorflow,torch,cv2
+
+# Liste des classes à ignorer lors de la vérification des types
+ignored-classes=numpy,tensorflow,torch,cv2
+
+[VARIABLES]
+# Liste des noms additionnels considérés comme builtins
+additional-builtins=
+
+[CLASSES]
+# Liste des méthodes considérées comme des propriétés
+property-classes=abc.abstractproperty
+
+[DESIGN]
+# Nombre maximum d'arguments pour une fonction
+max-args=10
+
+# Nombre maximum d'attributs pour une classe
+max-attributes=15
+
+# Nombre minimum de méthodes publiques pour une classe
+min-public-methods=1
+
+# Nombre maximum de méthodes publiques pour une classe
+max-public-methods=50
+
+[IMPORTS]
+# Permettre les imports wildcard
+allow-wildcard-with-all=no
+
+# Permettre les imports de modules privés (_*)
+allow-any-import-level=yes
+
+[EXCEPTIONS]
+# Exceptions qui n'ont pas besoin d'être documentées
+overgeneral-exceptions=Exception 

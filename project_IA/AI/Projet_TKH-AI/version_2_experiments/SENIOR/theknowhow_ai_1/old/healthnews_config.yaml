@@ -1,0 +1,151 @@
+# Configuration pour le scraper HealthNews
+
+# Sources d'actualités médicales
+news_sources:
+  - name: "WHO News"
+    url: "https://www.who.int/news"
+    language: "en"
+    priority: 1
+  - name: "NIH News"
+    url: "https://www.nih.gov/news-events"
+    language: "en"
+    priority: 1
+  - name: "CDC News"
+    url: "https://www.cdc.gov/media"
+    language: "en"
+    priority: 1
+  - name: "Inserm Actualités"
+    url: "https://www.inserm.fr/actualites-et-evenements"
+    language: "fr"
+    priority: 1
+  - name: "Santé publique France"
+    url: "https://www.santepubliquefrance.fr/presse"
+    language: "fr"
+    priority: 1
+
+# Catégories d'actualités
+categories:
+  - "research-news"
+  - "public-health"
+  - "medical-breakthroughs"
+  - "clinical-trials"
+  - "disease-outbreaks"
+  - "health-policy"
+  - "medical-technology"
+  - "pharmaceutical-news"
+  - "healthcare-innovation"
+  - "medical-education"
+
+# Paramètres de scraping
+scraping:
+  max_concurrent_requests: 3
+  request_delay: 2.0
+  timeout: 30
+  retry_count: 3
+  retry_delay: 5.0
+  max_articles_per_source: 1000
+  max_age_days: 30  # Ne collecter que les actualités des 30 derniers jours
+  update_frequency: "hourly"
+
+# Headers HTTP pour les requêtes
+headers:
+  User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+  Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
+  Accept-Language: "en-US,en;q=0.9,fr;q=0.8"
+
+# Configuration du stockage
+storage:
+  database_path: "data/databases/healthnews.db"
+  cache_path: "data/cache/healthnews"
+  backup_path: "data/backups/healthnews"
+  export_path: "data/exports/healthnews"
+  media_path: "data/media/healthnews"
+
+# Configuration du logging
+logging:
+  file_path: "data/logs/healthnews.log"
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  rotation: "1 week"
+  max_size: "100MB"
+
+# Paramètres d'extraction des données
+data_extraction:
+  extract_metadata: true
+  extract_images: true
+  extract_videos: true
+  extract_quotes: true
+  extract_statistics: true
+  extract_references: true
+  extract_press_contacts: true
+  save_html: false
+  translate_to_french: true
+
+# Paramètres de traduction
+translation:
+  enabled: true
+  source_languages:
+    - "en"
+  target_language: "fr"
+  service: "deepl"
+  batch_size: 50
+  preserve_formatting: true
+
+# Filtres de contenu
+content_filters:
+  min_article_length: 300
+  excluded_keywords:
+    - "advertisement"
+    - "sponsored"
+    - "promoted"
+    - "marketing"
+  required_keywords:
+    - "health"
+    - "medical"
+    - "research"
+    - "study"
+    - "clinical"
+    - "treatment"
+    - "disease"
+    - "healthcare"
+
+# Paramètres de qualité
+quality_filters:
+  require_source_citation: true
+  require_publication_date: true
+  require_author_info: true
+  exclude_opinion_pieces: false
+  require_expert_quotes: true
+  min_article_score: 0.7  # Score basé sur la qualité du contenu
+
+# Paramètres de notification
+notifications:
+  enabled: true
+  channels:
+    - "email"
+    - "slack"
+  triggers:
+    - "breaking_news"
+    - "important_updates"
+    - "error_alerts"
+
+# Paramètres de sauvegarde
+backup:
+  enabled: true
+  frequency: "daily"
+  keep_days: 30
+  compress: true
+
+# RSS Feeds
+rss:
+  enabled: true
+  check_frequency: 900  # en secondes
+  feeds:
+    - name: "WHO RSS"
+      url: "https://www.who.int/rss-feeds/news-english.xml"
+    - name: "NIH RSS"
+      url: "https://www.nih.gov/news-releases.xml"
+    - name: "CDC RSS"
+      url: "https://tools.cdc.gov/api/v2/resources/media/132608.rss"
+    - name: "Inserm RSS"
+      url: "https://www.inserm.fr/rss.xml" 

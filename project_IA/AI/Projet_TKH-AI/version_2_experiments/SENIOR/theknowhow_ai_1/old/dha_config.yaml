@@ -1,0 +1,227 @@
+# Configuration pour le scraper DHA (Dubai Health Authority)
+
+# URL de base du site
+base_url: "https://www.dha.gov.ae"
+
+# Langues supportées
+languages:
+  - code: "ar"
+    name: "Arabic"
+    priority: 1
+  - code: "en"
+    name: "English"
+    priority: 2
+
+# Sections à scraper
+sections:
+  - name: "News"
+    url_path: "/news"
+    priority: 1
+  - name: "Health Services"
+    url_path: "/services"
+    priority: 1
+  - name: "Medical Tourism"
+    url_path: "/medical-tourism"
+    priority: 2
+  - name: "Health Regulation"
+    url_path: "/regulation"
+    priority: 2
+  - name: "Health Statistics"
+    url_path: "/statistics"
+    priority: 3
+  - name: "Health Facilities"
+    url_path: "/facilities"
+    priority: 2
+  - name: "Health Insurance"
+    url_path: "/insurance"
+    priority: 2
+
+# Types de contenu
+content_types:
+  - "news-releases"
+  - "announcements"
+  - "health-services"
+  - "medical-guidelines"
+  - "regulations"
+  - "statistics"
+  - "facilities-info"
+  - "insurance-updates"
+
+# Paramètres de scraping
+scraping:
+  max_concurrent_requests: 3
+  request_delay: 2.0  # Délai entre les requêtes en secondes
+  timeout: 30
+  retry_count: 3
+  retry_delay: 5.0
+  max_pages_per_section: 100
+  update_frequency: "daily"
+  respect_robots_txt: true
+
+# Headers HTTP pour les requêtes
+headers:
+  User-Agent: "Mozilla/5.0 (compatible; HealthAuthorityBot/1.0; +https://www.example.com/bot)"
+  Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+  Accept-Language: "ar,en-US;q=0.7,en;q=0.3"
+
+# Configuration du stockage
+storage:
+  database_path: "data/databases/dha.db"
+  cache_path: "data/cache/dha"
+  backup_path: "data/backups/dha"
+  export_path: "data/exports/dha"
+  media_path: "data/media/dha"
+  pdf_path: "data/documents/dha"
+
+# Configuration du logging
+logging:
+  file_path: "data/logs/dha.log"
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  rotation: "1 week"
+  max_size: "100MB"
+
+# Paramètres d'extraction des données
+data_extraction:
+  extract_metadata: true
+  extract_text: true
+  extract_images: true
+  extract_documents: true
+  extract_statistics: true
+  extract_contacts: true
+  save_pdf: true
+  translate_to_french: true
+  ocr_enabled: true  # Pour les images contenant du texte
+  parse_tables: true
+  extract_locations: true
+
+# Paramètres de traduction
+translation:
+  enabled: true
+  source_languages: ["ar", "en"]
+  target_language: "fr"
+  service: "deepl"
+  batch_size: 50
+  preserve_formatting: true
+  translate_fields:
+    - "title"
+    - "description"
+    - "content"
+    - "summary"
+    - "keywords"
+    - "facility_info"
+    - "service_description"
+
+# Filtres de contenu
+content_filters:
+  min_content_length: 100
+  required_fields:
+    - "title"
+    - "date"
+    - "content"
+    - "language"
+  excluded_keywords:
+    - "archived"
+    - "expired"
+  required_keywords:
+    - "health"
+    - "medical"
+    - "healthcare"
+    - "dubai"
+    - "dha"
+
+# Paramètres de qualité
+quality_filters:
+  require_date: true
+  require_source: true
+  require_category: true
+  check_broken_links: true
+  validate_contact_info: true
+  validate_facility_info: true
+  min_content_quality_score: 0.7
+
+# Paramètres de notification
+notifications:
+  enabled: true
+  channels:
+    - "email"
+    - "slack"
+  triggers:
+    - "new_content"
+    - "service_update"
+    - "regulation_change"
+    - "facility_update"
+    - "error_alert"
+  priority_levels:
+    - "high"
+    - "medium"
+    - "low"
+
+# Paramètres de sauvegarde
+backup:
+  enabled: true
+  frequency: "daily"
+  keep_days: 90
+  compress: true
+  include_media: true
+
+# API Configuration
+api:
+  enabled: false
+  base_url: ""
+  version: ""
+  key: ""
+  rate_limit: 0
+
+# Géolocalisation
+geolocation:
+  enabled: true
+  city: "Dubai"
+  country: "UAE"
+  regions:
+    - "Bur Dubai"
+    - "Deira"
+    - "Jumeirah"
+    - "Al Barsha"
+    - "Al Qusais"
+    - "Al Karama"
+
+# Informations sur les établissements de santé
+facilities:
+  types:
+    - "Hospitals"
+    - "Medical Centers"
+    - "Clinics"
+    - "Pharmacies"
+    - "Laboratories"
+  required_info:
+    - "name"
+    - "location"
+    - "services"
+    - "contact"
+    - "working_hours"
+    - "insurance_networks"
+
+# RSS Feeds
+rss:
+  enabled: true
+  check_frequency: 1800  # en secondes
+  feeds:
+    - name: "DHA News"
+      url: "https://www.dha.gov.ae/en/feeds/news.xml"
+    - name: "Health Alerts"
+      url: "https://www.dha.gov.ae/en/feeds/alerts.xml"
+
+# Paramètres spécifiques aux services médicaux
+medical_services:
+  categories:
+    - "Emergency Services"
+    - "Primary Care"
+    - "Specialized Care"
+    - "Surgical Services"
+    - "Diagnostic Services"
+    - "Rehabilitation Services"
+  include_pricing: true
+  include_insurance_info: true
+  include_booking_info: true
+  include_waiting_times: true 

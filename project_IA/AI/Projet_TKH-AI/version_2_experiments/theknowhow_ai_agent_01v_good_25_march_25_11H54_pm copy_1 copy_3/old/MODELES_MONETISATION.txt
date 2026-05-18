@@ -1,0 +1,90 @@
+MODÈLES DE MONÉTISATION ET RESTRICTIONS
+=====================================
+
+1. MODÈLES DE REVENUS LÉGAUX ET ÉTHIQUES
+---------------------------------------
+
+A. Modèle B2B (Business to Business)
+   - Vente du système à d'autres entreprises
+   - Prix : Abonnement mensuel ou licence
+   - Exemple : "TheKnowHow Agent Pro" pour 1000€/mois
+   - Avantages : Revenus stables, clients fidèles
+
+B. Modèle SaaS (Software as a Service)
+   - Service en ligne avec différents niveaux
+   - Tarifs :
+     * Basic : 500€/mois
+     * Pro : 1000€/mois
+     * Enterprise : 2000€/mois
+   - Avantages : Revenus récurrents, scalabilité
+
+C. Modèle de Commission
+   - % sur les conversions
+   - Exemple : 5% sur chaque rendez-vous
+   - Avantages : Alignement avec le succès client
+
+D. Services Additionnels
+   - Formation à l'utilisation
+   - Personnalisation du système
+   - Support technique
+   - Maintenance
+   - Avantages : Revenus complémentaires
+
+E. Modèle Freemium
+   - Version gratuite basique
+   - Version premium avec plus de fonctionnalités
+   - Exemple :
+     * Gratuit : 100 interactions/mois
+     * Premium : Illimité + fonctionnalités avancées
+   - Avantages : Acquisition de clients facilitée
+
+2. RESTRICTIONS ET INTERDICTIONS
+-------------------------------
+
+A. Interdictions Légales
+   - Vente d'informations personnelles
+   - Vente de données médicales
+   - Violation du RGPD
+   - Non-respect de la confidentialité médicale
+
+B. Interdictions Éthiques
+   - Exploitation des données sensibles
+   - Manipulation des utilisateurs
+   - Non-respect de la déontologie médicale
+   - Violation de la confiance des utilisateurs
+
+C. Risques à Éviter
+   - Poursuites judiciaires
+   - Sanctions légales
+   - Perte de confiance des clients
+   - Dommages à la réputation
+   - Perte de licence médicale
+
+3. RECOMMANDATIONS
+-----------------
+
+A. Priorités
+   - Respect total de la confidentialité
+   - Transparence dans les interactions
+   - Protection des données personnelles
+   - Conformité légale
+
+B. Bonnes Pratiques
+   - Documentation claire des processus
+   - Formation des équipes
+   - Audits réguliers
+   - Mise à jour des protocoles
+
+C. Développement Durable
+   - Focus sur la qualité du service
+   - Construction de la confiance
+   - Développement de la réputation
+   - Expansion éthique
+
+4. CONCLUSION
+------------
+Le succès financier doit toujours être équilibré avec :
+- Le respect de la vie privée
+- L'éthique médicale
+- La confiance des utilisateurs
+- La conformité légale 

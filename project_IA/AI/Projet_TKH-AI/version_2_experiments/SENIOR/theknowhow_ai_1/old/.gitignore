@@ -1,0 +1,63 @@
+# Credentials
+config/*/credentials.yaml
+config/*/credentials.yml
+*.env
+
+# Logs
+logs/
+*.log
+
+# Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.env
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Logs et données
+data/
+*.db
+*.sqlite3
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Tests
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Documentation générée
+docs/_build/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers de configuration sensibles
+*.pem
+*.key
+secrets.yaml
+
+# Dossiers de données
+data/raw/
+data/processed/
+data/medical_kb/
+
+# Fichiers temporaires
+*.tmp
+*.bak
+*.swp
+*~ 

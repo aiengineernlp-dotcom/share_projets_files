@@ -1,0 +1,137 @@
+# Configuration pour le scraper UpToDate
+
+# URL de base du site
+base_url: "https://www.uptodate.com"
+
+# Paramètres d'authentification
+auth:
+  enabled: true
+  type: "institutional"  # institutional, individual, ou guest
+  credentials:
+    username: ""
+    password: ""
+  institution:
+    name: ""
+    id: ""
+
+# Spécialités médicales à scraper
+specialties:
+  - "allergy-immunology"
+  - "cardiovascular-medicine"
+  - "dermatology"
+  - "emergency-medicine"
+  - "endocrinology-diabetes"
+  - "family-medicine"
+  - "gastroenterology-hepatology"
+  - "hematology"
+  - "infectious-diseases"
+  - "nephrology-hypertension"
+  - "neurology"
+  - "oncology"
+  - "pediatrics"
+  - "primary-care"
+  - "psychiatry"
+  - "pulmonary-critical-care"
+  - "rheumatology"
+
+# Types de contenu à collecter
+content_types:
+  - "clinical_topics"
+  - "drug_information"
+  - "patient_education"
+  - "medical_calculators"
+  - "practice_changing_updates"
+  - "what_is_new"
+  - "graphics_and_images"
+
+# Paramètres de scraping
+scraping:
+  max_concurrent_requests: 2  # Limité pour éviter la détection
+  request_delay: 3.0  # Délai plus long entre les requêtes
+  timeout: 45
+  retry_count: 3
+  retry_delay: 10.0
+  max_topics_per_specialty: 500
+  max_depth: 3
+  respect_robots_txt: true
+
+# Headers HTTP pour les requêtes
+headers:
+  User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+  Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
+  Accept-Language: "en-US,en;q=0.9,fr;q=0.8"
+
+# Configuration du stockage
+storage:
+  database_path: "data/databases/uptodate.db"
+  cache_path: "data/cache/uptodate"
+  backup_path: "data/backups/uptodate"
+  export_path: "data/exports/uptodate"
+  media_path: "data/media/uptodate"
+
+# Configuration du logging
+logging:
+  file_path: "data/logs/uptodate.log"
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  rotation: "1 week"
+  max_size: "100MB"
+
+# Paramètres d'extraction des données
+data_extraction:
+  extract_metadata: true
+  extract_references: true
+  extract_evidence_grades: true
+  extract_recommendations: true
+  extract_graphics: true
+  extract_tables: true
+  extract_drug_interactions: true
+  extract_calculators: true
+  save_html: false
+  translate_to_french: true
+
+# Paramètres de traduction
+translation:
+  enabled: true
+  source_language: "en"
+  target_language: "fr"
+  service: "deepl"  # Service professionnel recommandé pour contenu médical
+  batch_size: 50
+  preserve_formatting: true
+
+# Filtres de contenu
+content_filters:
+  min_content_length: 1000
+  required_sections:
+    - "summary"
+    - "recommendations"
+    - "evidence"
+    - "references"
+  excluded_sections:
+    - "contributor_disclosures"
+    - "society_guideline_links"
+  update_frequency: "monthly"
+  min_update_date: "2023-01-01"
+
+# Paramètres de qualité
+quality_filters:
+  require_evidence_grading: true
+  require_peer_review: true
+  require_references: true
+  min_reference_count: 5
+  require_author_credentials: true
+
+# Paramètres de sauvegarde
+backup:
+  enabled: true
+  frequency: "daily"
+  keep_days: 90
+  compress: true
+  encrypt: true  # Protection supplémentaire pour le contenu sous licence
+
+# API Configuration (si disponible)
+api:
+  enabled: false
+  key: ""
+  endpoint: "https://api.uptodate.com"
+  version: "v1" 

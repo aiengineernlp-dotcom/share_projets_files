@@ -1,0 +1,55 @@
+# Configuration pour le scraper Mastodon
+
+# Paramètres d'API (à remplir)
+api:
+  access_token: ""  # Votre token d'accès Mastodon
+  base_url: "https://mastodon.social"  # URL de l'instance Mastodon
+  client_id: ""
+  client_secret: ""
+
+# Paramètres de scraping
+scraping:
+  max_toot_age_days: 30
+  min_favourites: 5
+  collect_replies: true
+  collect_media: false
+  max_toots_per_hashtag: 500
+  language_filter: ["fr", "en"]
+
+# Hashtags médicaux à suivre
+medical_hashtags:
+  - "medecine"
+  - "sante"
+  - "medical"
+  - "healthcare"
+  - "doctorsmastodon"
+  - "medicalresearch"
+  - "clinicalpractice"
+
+# Comptes médicaux à suivre
+medical_accounts:
+  - "@medecins@mastodon.social"
+  - "@healthcare@mastodon.social"
+  - "@research@scholar.social"
+
+# Paramètres de stockage
+storage:
+  database_path: "data/databases/mastodon_toots.db"
+  media_path: "data/media/mastodon"
+  backup_path: "data/backups/mastodon"
+
+# Paramètres de logging
+logging:
+  level: "INFO"
+  file_path: "data/logs/scraping/mastodon.log"
+  max_size: 10485760  # 10 MB
+  backup_count: 5
+
+# Paramètres de connexion
+connection:
+  timeout: 30
+  retry_attempts: 3
+  retry_delay: 5
+  rate_limit:
+    max_requests: 300
+    window_seconds: 300  # 5 minutes 

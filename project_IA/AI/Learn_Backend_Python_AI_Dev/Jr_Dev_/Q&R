@@ -1,0 +1,29 @@
+print('================== ===============================================================================================\n')
+
+🧭 Comment bien poser tes problèmes la prochaine fois ?
+Voici un format qui m’aidera à mieux te répondre tout en te faisant réfléchir :
+
+Le contexte : ce que tu veux faire.
+
+Ce que tu as déjà codé (ou une explication en mots).
+
+Le blocage précis que tu rencontres (code ou logique).
+
+Ce que tu penses être la bonne approche (même si tu doutes).
+
+Exemple :
+
+"Je veux que l'utilisateur emprunte un livre seulement si disponible == True.
+J'ai fait une classe Livre avec disponible = True, et une classe Utilisateur.
+Mais je ne sais pas comment accéder à l'attribut disponible depuis la méthode emprunter dans Utilisateur.
+Est-ce que je dois passer l'objet Livre en paramètre ou utiliser l'héritage ?"
+
+Tu vois ? Avec ça, je peux t'aider à réfléchir et à apprendre, pas juste te balancer une réponse.
+
+
+print('================== ===============================================================================================\n')
+
+
+
+
+

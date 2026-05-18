@@ -1,0 +1,57 @@
+# Configuration pour le scraper TikTok
+
+# Paramètres d'authentification (à remplir)
+auth:
+  session_id: ""  # Votre session ID TikTok
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+
+# Paramètres de scraping
+scraping:
+  max_video_age_days: 30
+  min_likes: 100
+  min_comments: 10
+  collect_comments: true
+  collect_video_info: true
+  max_videos_per_hashtag: 500
+
+# Hashtags médicaux à suivre
+medical_hashtags:
+  - "medecine"
+  - "health"
+  - "medical"
+  - "doctor"
+  - "healthcare"
+  - "medicalstudent"
+  - "medicaladvice"
+
+# Comptes médicaux à suivre
+medical_accounts:
+  - "doctorsoftiktok"
+  - "medicaleducation"
+  - "healthcareprofessionals"
+  - "medicalfacts"
+
+# Paramètres de stockage
+storage:
+  database_path: "data/databases/tiktok_videos.db"
+  media_path: "data/media/tiktok"
+  backup_path: "data/backups/tiktok"
+
+# Paramètres de logging
+logging:
+  level: "INFO"
+  file_path: "data/logs/scraping/tiktok.log"
+  max_size: 10485760  # 10 MB
+  backup_count: 5
+
+# Paramètres de connexion
+connection:
+  timeout: 30
+  retry_attempts: 3
+  retry_delay: 5
+  proxy:
+    enabled: false
+    host: ""
+    port: ""
+    username: ""
+    password: "" 
